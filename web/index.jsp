@@ -66,7 +66,7 @@
 
   <div data-role="main" class="ui-content">
       <h1>Home</h1>
-      //TO-DO : Insert your body 
+      //TO-DO
   </div>
 
   <div data-role="footer" data-position="fixed">
