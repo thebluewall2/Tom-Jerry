@@ -169,13 +169,10 @@
     
     <div align="left">
       <h1>Home</h1>
-<<<<<<< HEAD
+
       //TO-DO
     </div>
-=======
-      //TO-DO
   </div>
->>>>>>> fd06c83b0ce8966631b7c65da27f7de81ed70580
 
   <div data-role="footer" data-position="fixed">
     <h1>Copyright © 2016 by Tom and Jerry</h1>
