@@ -145,15 +145,16 @@
          <table border="0" class="first_table">
             <tr>
                 <td>
-                    <a href="index.jsp"><img src="images/XYZLOGO.png" width="300" height="300" alt="XYZ"/></a>
+                    <a href="userHome.jsp"><img src="images/XYZLOGO.png" width="300" height="300" alt="XYZ"/></a>
                 </td>
             
                 <td>
                     <ul>
-                        <li><a href="index.jsp">Home</a></li>
-                        <li><a href="members.jsp">Members</a></li>
-                        <li><a href="outstanding.jsp">Outstanding Balances</a></li>
-                        <li><a href="annual.jsp">Annual Turnover</a></li>
+                        <li><a href="userHome.jsp">Home</a></li>
+                        <li><a href="userMembership.jsp">Membership</a></li>
+                        <li><a href="userPayment.jsp">Membership Payment</a></li>
+                        <li><a href="userClaim.jsp">Claim Subsidy</a></li>
+                        <li><a href="userSettings.jsp">Settings</a></li>
                     </ul>
                 </td>
             </tr>
@@ -162,11 +163,11 @@
   
     
     <div align="left">
-        <h1>Members</h1>                                     
+        <h1>User Claim</h1>                                     
     </div>
 
   <div data-role="footer" data-position="fixed">
-     <h2 style="font-size: 12px">Copyright © 2016 by Tom and Jerry</h2>
+    <h2 style="font-size: 12px">Copyright © 2016 by Tom and Jerry</h2>
   </div>
 </div>
 </body>

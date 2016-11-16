@@ -129,37 +129,46 @@
         #container ul li a
         {
 	text-decoration: none;
-	font: 11px/11px Arial, sans-serif;
+	font: 11px/41px Arial, sans-serif;
 	color: #ddd;
 	text-transform: uppercase;
 	text-shadow: 0px 1px rgba(0,0,0,0.5);
-	padding: 20px;
-
+	padding: 30px;
         }
+        
+        
     </style>
 </head>
 
 <body>
 <div data-role="page">
-  <div  data-role="header" data-position="fixed" >
+  <div id="container" data-position="fixed" >
          <table border="0" class="first_table">
             <tr>
-                <td cellpadding ="60px">
-                    <a href="adminHome.jsp"><img src="images/XYZLOGO.png" width="300" height="300" alt="XYZ"/></a>
+                <td>
+                    <a href="adminOutstanding.jsp"><img src="images/XYZLOGO.png" width="300" height="300" alt="XYZ"/></a>
+                </td>
+            
+                <td>
+                    <ul>
+                        <li><a href="adminHome.jsp">Home</a></li>
+                        <li><a href="adminMembers.jsp">Members</a></li>
+                        <li><a href="adminOutstanding.jsp">Outstanding Balances</a></li>
+                        <li><a href="adminAnnual.jsp">Annual Turnover</a></li>
+                    </ul>
                 </td>
             </tr>
         </table>
    </div>
   
     
-    <div align="left">
-        <h1>Login Page</h1>  
-        <a href="userHome.jsp">Go to user home page from here</a>
-        
+    <div  align="left">
+        <h1>Outstanding Balances</h1>                                     
     </div>
 
-  <div data-role="footer" data-position="fixed">
-    <h2 style="font-size: 12px">Copyright © 2016 by Tom and Jerry</h2>
+  <div data-role="footer" data-position="fixed" >
+       <h2 style="font-size: 12px">Copyright © 2016 by Tom and Jerry</h2>
+    
   </div>
 </div>
 </body>
