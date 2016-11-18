@@ -12,7 +12,6 @@
             float: left;
             width: 800px;
             height: 100px;
-            
         }
 
         .clear 
@@ -129,7 +128,7 @@
         #container ul li a
         {
 	text-decoration: none;
-	font: 11px/11px Arial, sans-serif;
+	font: 10px/10px Helvetica, sans-serif;
 	color: #ddd;
 	text-transform: uppercase;
 	text-shadow: 0px 1px rgba(0,0,0,0.5);
@@ -139,6 +138,7 @@
     </style>
 </head>
 
+<!--This is web page header logo-->
 <body>
 <div data-role="page">
   <div  data-role="header" data-position="fixed" >
@@ -151,13 +151,12 @@
         </table>
    </div>
   
-    
+    <!-- Your body starts here!-->
     <div align="left">
         <h1>Login Page</h1>  
         <a href="userHome.jsp">Go to user home page from here</a>
-        
     </div>
-
+  <!-- This is footer-->
   <div data-role="footer" data-position="fixed">
     <h2 style="font-size: 12px">Copyright © 2016 by Tom and Jerry</h2>
   </div>

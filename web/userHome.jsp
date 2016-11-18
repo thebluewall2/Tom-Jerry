@@ -7,12 +7,12 @@
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     
     <style type="text/css">
+        //Seprate logo and Navigation Bar 
         table.first_table 
         {
             float: left;
             width: 800px;
             height: 100px;
-            
         }
 
         .clear 
@@ -32,7 +32,9 @@
         {
             width: 100%;
         }
+        //End table 
         
+        //CSS for Navigation Bar
         body {
 	background: #333;
 	text-align: center;
@@ -63,21 +65,21 @@
         #container ul 
         {
 	padding: 0;
-	height: 40px;
+	height: 30px;
 	margin: 0;
 	list-style: none;
 	overflow: hidden;
 	
-	-webkit-box-shadow: inset 0px 1px 1px 0px rgba(255,255,255,.2), 0px 1px 2px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: inset 0px 1px 1px 0px rgba(255,255,255,.2), 0px 1px 2px 0px rgba(0,0,0,0.5);
-	box-shadow: inset 0px 1px 1px 0px rgba(255,255,255,.2), 0px 1px 2px 0px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 1px 2px 2px 1px rgba(255,255,255,.1), 1px 2px 3px 1px rgba(0,0,0,0.4);
+	-moz-box-shadow: inset 1px 2px 2px 1px rgba(255,255,255,.1), 1px 2px 3px 1px rgba(0,0,0,0.4);
+	box-shadow: inset 1px 2px 2px 1px rgba(255,255,255,.1), 1px 2px 3px 1px rgba(0,0,0,0.4);
 	
-	background: #5c6063;
-	background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
+	background: #72787c;
+	background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 1%, rgba(0,0,0,0.2) 100%);
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.3)));
 	background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
-	background-image: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
-	background-image: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
+	background-image: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%);
+	background-image: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 100%);
 	background-image: linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#4d000000',GradientType=0 );
 	
@@ -110,7 +112,7 @@
 	background: rgba(0,0,0,0.08);
         }
 
-        #container ul li:first-child 
+        #container ul li:first-child
         {
 	border-left: none;
 	-webkit-border-radius: 100px 0 0 100px;
@@ -129,7 +131,7 @@
         #container ul li a
         {
 	text-decoration: none;
-	font: 11px/11px Arial, sans-serif;
+	font: 11px/11px Helvetica, sans-serif;
 	color: #ddd;
 	text-transform: uppercase;
 	text-shadow: 0px 1px rgba(0,0,0,0.5);
@@ -140,7 +142,9 @@
 </head>
 
 <body>
+<!--This is whole web page-->
 <div data-role="page">
+    <!--This is header-->
   <div id="container" data-position="fixed" >
          <table border="0" class="first_table">
             <tr>
@@ -152,21 +156,21 @@
                     <ul>
                         <li><a href="userHome.jsp">Home</a></li>
                         <li><a href="userMembership.jsp">Membership</a></li>
-                        <li><a href="userPayment.jsp">Membership Payment</a></li>
+                        <li><a href="userPayment.jsp">Payment</a></li>
                         <li><a href="userClaim.jsp">Claim Subsidy</a></li>
                         <li><a href="userSettings.jsp">Settings</a></li>
+                        <li><a href="logoutServlet">LogOut</a></li>
                     </ul>
                 </td>
             </tr>
         </table>
    </div>
   
-    
+    <!-- This is body -->
     <div align="left">
         <h1>User Home</h1>  
-        <a href="logoutServlet">Log out</a>
     </div>
-
+ <!-- This is footer-->
   <div data-role="footer" data-position="fixed">
     <h2 style="font-size: 12px">Copyright © 2016 by Tom and Jerry</h2>
   </div>
