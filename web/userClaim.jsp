@@ -34,7 +34,7 @@
   
     <!--This is body-->
     <div align="left">
-        <h1>User Claim</h1>                                     
+        <h1><center>User Claim</center></h1>                                     
     </div>
  <!--This is footer-->
   <div data-role="footer" data-position="fixed">
