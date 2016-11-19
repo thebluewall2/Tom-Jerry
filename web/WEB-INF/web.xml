@@ -2,24 +2,20 @@
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <servlet>
         <servlet-name>adminServlet</servlet-name>
-        <servlet-class>admin.adminServlet</servlet-class>
+        <servlet-class>XYZ.adminServlet</servlet-class>
     </servlet>
-    
-    <servlet>
-        <servlet-name>logoutServlet</servlet-name>
-        <servlet-class>logoutServlet</servlet-class>
-    </servlet>
-    
     <servlet-mapping>
         <servlet-name>adminServlet</servlet-name>
         <url-pattern>/adminServlet</url-pattern>
     </servlet-mapping>
-    
+    <servlet>
+        <servlet-name>logoutServlet</servlet-name>
+        <servlet-class>XYZ.fileManager</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>logoutServlet</servlet-name>
-        <url-pattern>/logoutServlet</url-pattern>
+        <url-pattern>/logoutServlet.do</url-pattern>
     </servlet-mapping>
-    
     <session-config>
         <session-timeout>
             30
