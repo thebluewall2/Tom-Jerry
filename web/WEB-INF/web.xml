@@ -10,7 +10,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>logoutServlet</servlet-name>
-        <servlet-class>XYZ.fileManager</servlet-class>
+        <servlet-class>XYZ.logoutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>logoutServlet</servlet-name>

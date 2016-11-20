@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpSession;
  
-public class fileManager extends HttpServlet
+public class logoutServlet extends HttpServlet
 {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
