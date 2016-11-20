@@ -3,13 +3,19 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link type="text/css" rel="stylesheet" href="view/pageDesign.css"/>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
-<jsp:include page="headerUser.jsp" /> 
-
 <body>
-    <h1>Payment</h1>
+    <div data-role="page">
+        
+    <jsp:include page="headerUser.jsp" />
+        
+    <h1> Payment </h1>
+    <jsp:include page="footer.jsp" />
+    
+    </div>
 </body>
 </html>
 
