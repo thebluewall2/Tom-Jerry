@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class paymentServlet extends HttpServlet 
 {
@@ -16,21 +17,9 @@ public class paymentServlet extends HttpServlet
     {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet paymentServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet paymentServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
-        }
+ 
     }
+}
     
     /*
     private void insertPayment(databaseConnection dataCon, HttpServletRequest request) 
@@ -52,9 +41,9 @@ public class paymentServlet extends HttpServlet
         session.setAttribute("paymenttype", String.valueOf(responsePayment.getPaymentMethod()));
         session.setAttribute("chargenote", userPayment.getCash());
         session.setAttribute("chargestatus", userPayment.getStatus());
-        session.setAttribute("paymentid", String.valueOf(responsePayment.getInvoiceNumber()));
+        session.setAttribute("invoiceNumber", String.valueOf(responsePayment.getInvoiceNumber()));
         session.setAttribute("paymentmessage", "Payment added successfully!");
-    }*/
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -75,4 +64,4 @@ public class paymentServlet extends HttpServlet
         return "Short description";
     }// </editor-fold>
 
-}
+}*/

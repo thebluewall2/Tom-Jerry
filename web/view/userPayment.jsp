@@ -13,7 +13,7 @@
         
         <h1> Payment </h1>
         <form action="userHome.jsp" method="POST" style="width: 400px">
-            User Name: <input type="text" name="userName"><br>
+            Member ID: <input type="text" name="memberID"><br>
             First Name: <input type="text" name="firstName"><br>
             Last Name: <input type="text" name ="lastName"><br>
             Amount: <input type="text" name ="amount"><br>

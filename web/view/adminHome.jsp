@@ -8,15 +8,12 @@
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
-<body>
-    <div data-role="page">
-        
+<body>  
     <jsp:include page="headerAdmin.jsp" />
         
     <h1> Home </h1>
     <jsp:include page="footer.jsp" />
-    
-    </div>
+   
 </body>
 </html>
 

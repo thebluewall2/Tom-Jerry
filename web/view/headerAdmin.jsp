@@ -1,6 +1,7 @@
 
-<!--This is header-->
-<div id="container" align="center" data-position="fixed" >
+<div align="center" data-role="page">
+    <!--This is header-->
+    <div id="container" data-position="fixed" >
     <table border="0" class="first_table">
         <tr>
             <td>

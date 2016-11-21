@@ -4,45 +4,33 @@ import java.sql.Timestamp;
 
 public class adminPayment 
 {
-    private String userName;
+    private String memberID;
     private int invoiceNumber;
     private String paymentMethod;
     private float amount;
     private Timestamp date;
-    private String cash;
-    private String status;
 
-    public adminPayment(String userName, int invoiceNumber, float amount, String paymentMethod, Timestamp date, String cash, String status) 
+    public adminPayment(String memberID, int invoiceNumber, float amount, String paymentMethod, Timestamp date) 
     {
         this.invoiceNumber = invoiceNumber;
-        this.userName = userName;
-        this.paymentMethod = paymentMethod;
-        this.amount = amount;
-        this.date = date;
-        this.cash = cash;
-        this.status = status;
-    }
-
-    public adminPayment(String userName, int invoiceNumber, float amount, String paymentMethod, Timestamp date) 
-    {
-        this.invoiceNumber = invoiceNumber;
-        this.userName = userName;
+        this.memberID = memberID;
         this.paymentMethod = paymentMethod;
         this.amount = amount;
         this.date = date;
     }
+
 
     public adminPayment(String userName, int invoiceNumber, float amount, String paymentMethod) 
     {
-        this.userName = userName;
+        this.memberID = memberID;
         this.invoiceNumber = invoiceNumber;
         this.amount = amount;
         this.paymentMethod = paymentMethod;
     }
 
-    public String getUserName() 
+    public String getMemberID() 
     {
-        return userName;
+        return memberID;
     }
 
     public String getPaymentMethod() 
@@ -65,14 +53,5 @@ public class adminPayment
         return date;
     }
     
-    public String getStatus() 
-    {
-        return status;
-    }
-
-    public String getCash() 
-    {
-        return cash;
-    }
    
 }

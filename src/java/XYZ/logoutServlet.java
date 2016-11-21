@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
  
 public class logoutServlet extends HttpServlet
 {
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         request.getParameter("action");

@@ -10,15 +10,26 @@
 
 </head>
 
-<body>
-    <div data-role="page">
-        
+<body>        
     <jsp:include page="headerAdmin.jsp" />
         
     <h1> Annual Turnover </h1>
-    <jsp:include page="footer.jsp" />
-    
+    <div data-role="content" class="ui-content" class="table1">
+    <table>
+        <tbody>
+            <tr>
+                <td>Total Income </td>
+                <td> £ 100000000.00</td>
+            </tr>
+            <tr>
+                <td>Total Payouts </td>
+                <td> £ 50000000.00 </td>
+            </tr>
+        </tbody>
+    </table>
     </div>
+    <jsp:include page="footer.jsp" />
+
 </body>
 </html>
 

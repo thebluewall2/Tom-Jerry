@@ -10,14 +10,12 @@
 </head>
 
 <body>
-    <div data-role="page">
         
     <jsp:include page="headerAdmin.jsp" />
         
     <h1> Outstanding Balance </h1>
     <jsp:include page="footer.jsp" />
     
-    </div>
 </body>
 </html>
 
