@@ -1,4 +1,3 @@
 # Tom-Jerry
 
-To our team : pls read this tutorial to learn how to collaborate on Github if you don't already know.
-https://code.tutsplus.com/tutorials/how-to-collaborate-on-github--net-34267
+MYSQL Database : for now, let's assume username is root and password is 1234. So that all our database access is centralized and won't need to keep editing that info whenever another person pull and stuff.
