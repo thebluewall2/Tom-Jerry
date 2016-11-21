@@ -23,14 +23,14 @@
   
 
     <!-- Your body starts here!-->
-    <div align="left">
-        <h1>Login Page</h1>  
-        
-        <form action="/loginServlet.do" method="POST"> 
+    <div align="center" >
+        <br>
+        <br>
+        <form action="/loginServlet.do" method="POST" style="width:400px;font-family: Helvetica-light"> 
             Username : <br>
             <input type="text" name="username">
             
-            <br><br>
+            <br>
             
             Password : <br>
             <input type="password" name="password">
@@ -39,7 +39,7 @@
             <input type="SUBMIT" value="Submit">
         </form>
     </div>
-    
+    <jsp:include page="view/footer.jsp" />
 </body>
 </html>
 

@@ -4,30 +4,18 @@ import java.sql.Timestamp;
 
 public class adminPayment 
 {
+    private String id;
     private String memberID;
     private int invoiceNumber;
     private String paymentMethod;
     private float amount;
     private Timestamp date;
-
-    public adminPayment(String memberID, int invoiceNumber, float amount, String paymentMethod, Timestamp date) 
+    
+    public String getID()
     {
-        this.invoiceNumber = invoiceNumber;
-        this.memberID = memberID;
-        this.paymentMethod = paymentMethod;
-        this.amount = amount;
-        this.date = date;
+        return id;
     }
-
-
-    public adminPayment(String userName, int invoiceNumber, float amount, String paymentMethod) 
-    {
-        this.memberID = memberID;
-        this.invoiceNumber = invoiceNumber;
-        this.amount = amount;
-        this.paymentMethod = paymentMethod;
-    }
-
+    
     public String getMemberID() 
     {
         return memberID;
@@ -52,6 +40,27 @@ public class adminPayment
     {
         return date;
     }
+
+    public adminPayment(String id, String memberID, int invoiceNumber, float amount, String paymentMethod, Timestamp date) 
+    {
+        this.id =id;
+        this.memberID = memberID;
+        this.invoiceNumber = invoiceNumber;
+        this.paymentMethod = paymentMethod;
+        this.amount = amount;
+        this.date = date;
+    }
+
+
+    public adminPayment(String id,String userName, int invoiceNumber, float amount, String paymentMethod) 
+    {
+        this.id = id;
+        this.memberID = memberID;
+        this.invoiceNumber = invoiceNumber;
+        this.amount = amount;
+        this.paymentMethod = paymentMethod;
+    }
+    
     
    
 }
