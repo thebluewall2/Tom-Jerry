@@ -8,6 +8,10 @@
         <servlet-name>paymentServlet</servlet-name>
         <servlet-class>XYZ.paymentServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddClaimServlet</servlet-name>
+        <servlet-class>AddClaimServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>adminServlet</servlet-name>
         <url-pattern>/adminServlet</url-pattern>
@@ -24,10 +28,13 @@
         <servlet-name>paymentServlet</servlet-name>
         <url-pattern>/paymentServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddClaimServlet</servlet-name>
+        <url-pattern>/AddClaimServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-
 </web-app>
