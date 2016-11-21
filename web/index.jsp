@@ -25,7 +25,19 @@
     <!-- Your body starts here!-->
     <div align="left">
         <h1>Login Page</h1>  
-        <a href="view/userHome.jsp">Go to user home page from here</a>
+        
+        <form action="/loginServlet.do" method="POST"> 
+            Username : <br>
+            <input type="text" name="username">
+            
+            <br><br>
+            
+            Password : <br>
+            <input type="password" name="password">
+            
+            <br><br>
+            <input type="SUBMIT" value="Submit">
+        </form>
     </div>
     
 </body>
