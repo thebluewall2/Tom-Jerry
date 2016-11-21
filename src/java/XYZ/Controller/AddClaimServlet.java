@@ -1,9 +1,11 @@
+package XYZ.Controller;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package XYZ;
+
 
 import XYZ.methods.AddClaim;
 import java.io.IOException;
@@ -17,42 +19,54 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author yusuk
  */
-public class ClaimServlet extends HttpServlet {
+public class AddClaimServlet extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String ClaimAmount = request.getParameter("ClaimAmount");
-            String ClaimReason = request.getParameter("ClaimReason");
-
-            out.println("Amount:" + ClaimAmount);
-            out.println("Reason:" + ClaimReason);
-
-            AddClaim claim = new AddClaim();
-            boolean ClaimSuccess = claim.AddClaimtoDB(Double.parseDouble(ClaimAmount), ClaimReason);
-            //ClaimSuccess= false;
-            if (ClaimSuccess) {
-                out.println("Claim successfully added!"); // think how to display claim successsful text
-                String message = ("Claim success, Amount is:" + ClaimAmount + " and the Reason is: " + ClaimReason);
-//                   request.getSession().setAttribute("message", message);
-//                   response.sendRedirect("/view/userHome.jsp");
-                request.setAttribute("message", message);
-                request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
-//                   response.sendRedirect(request.getContextPath()+"userHome");
-                //RequestDispatcher rd = request.getRequestDispatcher("/view/userHome.jsp");
-                // rd.forward(request, response); // include will put both pages together // forward just the new one
-                //msg pop success
-            } else {
-                out.println("Claim failure");
-                String message = ("Claim fail");
-                request.setAttribute("message", message);
-                request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
-                //can go back to home or continue adding claim
+            
+             String ClaimAmount = request.getParameter("ClaimAmount");                                       
+             String ClaimReason = request.getParameter("ClaimReason");
+             
+             out.println("Amount:"+ClaimAmount);
+             out.println("Reason:"+ClaimReason);
+         
+             
+             AddClaim claim = new AddClaim();
+             boolean ClaimSuccess = claim.AddClaimtoDB(Double.parseDouble(ClaimAmount), ClaimReason);
+             //ClaimSuccess= false;
+             if(ClaimSuccess)
+             {
+                   out.println("Claim successfully added!"); // think how to display claim successsful text
+                   String message = ("Claim success, Amount is:"+ClaimAmount+" and the Reason is: "+ClaimReason);
+                   request.setAttribute("message", message);
+                   request.getRequestDispatcher("view/userHome.jsp").forward(request, response);
+          //        RequestDispatcher rd = request.getRequestDispatcher("/view/userHome.jsp");
+          //         rd.forward(request, response); // include will put both pages together // forward just the new one
+                    //msg pop success
+             }
+             else
+             {
+                 out.println("Claim failure");
+                 String message = ("Claim fail");
+                   request.setAttribute("message", message);
+                   request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
+                 //can go back to home or continue adding claim
                 //msg pop failure
-            }
-
+             }
+            
+             
         } finally {
             out.close();
         }

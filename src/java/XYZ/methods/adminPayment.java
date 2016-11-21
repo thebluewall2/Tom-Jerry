@@ -1,4 +1,4 @@
-package XYZ;
+package XYZ.methods;
 
 import java.sql.Timestamp;
 

@@ -2,11 +2,11 @@
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <servlet>
         <servlet-name>adminServlet</servlet-name>
-        <servlet-class>XYZ.adminServlet</servlet-class>
+        <servlet-class>XYZ.Controller.adminServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>paymentServlet</servlet-name>
-        <servlet-class>XYZ.paymentServlet</servlet-class>
+        <servlet-class>XYZ.Controller.paymentServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddClaimServlet</servlet-name>
@@ -14,7 +14,7 @@
     </servlet>
     <servlet>
         <servlet-name>ClaimServlet</servlet-name>
-        <servlet-class>XYZ.ClaimServlet</servlet-class>
+        <servlet-class>XYZ.Controller.ClaimServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>userHome</servlet-name>
@@ -30,7 +30,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>logoutServlet</servlet-name>
-        <servlet-class>XYZ.logoutServlet</servlet-class>
+        <servlet-class>XYZ.Controller.logoutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>logoutServlet</servlet-name>

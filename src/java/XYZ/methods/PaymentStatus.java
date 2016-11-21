@@ -1,4 +1,4 @@
-package XYZ;
+package XYZ.methods;
 
 public enum PaymentStatus 
 {
