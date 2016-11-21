@@ -2,21 +2,25 @@
 <html>    
 <head>
     <link type="text/css" rel="stylesheet" href="pageDesign.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 
 <body>
    <jsp:include page="headerUser.jsp" />        
-        
+
     <!--History-->
 <div data-role="content" class="ui-content" class="table1">
     
-    <form action="/XYZDriverAssociation/ClaimServlet" method="POST" align="center" >
+    <form action="/XYZDriverAssociation/ClaimServlet" style="width:400px" method="post">
         
-        <center>Claim Amount</center>      
-        <input type="number" name="ClaimAmount" placeholder="0.00">
+        <center>Claim Amount</center>              
+        <input type="number" name="ClaimAmount" placeholder="0.00"><BR>
 
-        <center>Claim Reason</center>
-        <textarea style="resize:none" type="submit"  name="ClaimReason" placeholder="The reason for this claim is..."></textarea>
+        <center>Claim Reason</center><BR>
+        <textarea type="submit"  name="ClaimReason" placeholder="The reason for this claim is..."></textarea>
 
         <br>
         <input type="submit" value="Submit">
@@ -58,7 +62,7 @@
       <td>11/6/2016</td>
       <td>100$</td>
       <td>Why u ask</td>
-      <td>Approved</td> 
+      <td>Suspended</td> 
     </tr>
   </tbody>
 </table>

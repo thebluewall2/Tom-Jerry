@@ -16,6 +16,14 @@
         <servlet-name>ClaimServlet</servlet-name>
         <servlet-class>XYZ.ClaimServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>userHome</servlet-name>
+        <jsp-file>/view/userHome.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>userClaims</servlet-name>
+        <jsp-file>/view/userClaim.jsp</jsp-file>
+    </servlet>
     <servlet-mapping>
         <servlet-name>adminServlet</servlet-name>
         <url-pattern>/adminServlet</url-pattern>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>ClaimServlet</servlet-name>
         <url-pattern>/ClaimServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>userHome</servlet-name>
+        <url-pattern>/userHome</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>userClaims</servlet-name>
+        <url-pattern>/userClaims</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

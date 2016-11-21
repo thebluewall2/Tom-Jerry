@@ -51,9 +51,9 @@ public class AddClaimServlet extends HttpServlet {
                    out.println("Claim successfully added!"); // think how to display claim successsful text
                    String message = ("Claim success, Amount is:"+ClaimAmount+" and the Reason is: "+ClaimReason);
                    request.setAttribute("message", message);
-                   request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
-//                   RequestDispatcher rd = request.getRequestDispatcher("/view/userHome.jsp");
-//                   rd.forward(request, response); // include will put both pages together // forward just the new one
+                   request.getRequestDispatcher("view/userHome.jsp").forward(request, response);
+          //        RequestDispatcher rd = request.getRequestDispatcher("/view/userHome.jsp");
+          //         rd.forward(request, response); // include will put both pages together // forward just the new one
                     //msg pop success
              }
              else

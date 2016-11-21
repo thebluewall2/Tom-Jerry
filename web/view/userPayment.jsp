@@ -12,7 +12,7 @@
         <jsp:include page="headerUser.jsp" />
         
         <h1> Payment </h1>
-        <form action="userHome.jsp" method="POST" style="width: 400px" align="left">
+        <form action="userHome.jsp" method="POST" style="width: 400px">
             User Name: <input type="text" name="userName"><br>
             First Name: <input type="text" name="firstName"><br>
             Last Name: <input type="text" name ="lastName"><br>

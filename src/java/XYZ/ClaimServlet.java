@@ -8,7 +8,6 @@ package XYZ;
 import XYZ.methods.AddClaim;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -40,9 +39,11 @@ public class ClaimServlet extends HttpServlet {
              {
                    out.println("Claim successfully added!"); // think how to display claim successsful text
                    String message = ("Claim success, Amount is:"+ClaimAmount+" and the Reason is: "+ClaimReason);
+//                   request.getSession().setAttribute("message", message);
+//                   response.sendRedirect("/view/userHome.jsp");
                    request.setAttribute("message", message);
-                   //request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
-                   response.sendRedirect(request.getContextPath()+"view/userHome.jsp");
+                   request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
+//                   response.sendRedirect(request.getContextPath()+"userHome");
                 //RequestDispatcher rd = request.getRequestDispatcher("/view/userHome.jsp");
                   // rd.forward(request, response); // include will put both pages together // forward just the new one
                     //msg pop success

@@ -5,16 +5,16 @@
         <table border="0" >
             <tr>
                 <td>
-                    <a href="userHome.jsp"><img src="images/XYZLOGO.png" width="300" height="300" alt="XYZ"/></a>
+                    <a href="userHome.jsp"><img src="/XYZDriverAssociation/view/images/XYZLOGO.png" width="300" height="300" alt="XYZ"/></a>
                 </td>
 
                 <td>
                     <ul>
-                        <li><a href="userHome.jsp">Home</a></li>
-                        <li><a href="userMembership.jsp">Membership</a></li>
-                        <li><a href="userPayment.jsp">Payment</a></li>
-                        <li><a href="userClaim.jsp">Claim Subsidy</a></li>
-                        <li><a href="userSettings.jsp">Settings</a></li>
+                        <li><a href="/XYZDriverAssociation/view/userHome.jsp">Home</a></li>
+                        <li><a href="/XYZDriverAssociation/view/userMembership.jsp">Membership</a></li>
+                        <li><a href="/XYZDriverAssociation/view/userPayment.jsp">Payment</a></li>
+                        <li><a href="/XYZDriverAssociation/view/userClaim.jsp">Claim Subsidy</a></li>
+                        <li><a href="/XYZDriverAssociation/view/userSettings.jsp">Settings</a></li>
                         <li><a href="/XYZDriverAssociation/logoutServlet.do">LogOut</a></li>
                     </ul>
                 </td>
