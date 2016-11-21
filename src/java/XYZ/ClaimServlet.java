@@ -19,45 +19,40 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ClaimServlet extends HttpServlet {
 
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-  String ClaimAmount = request.getParameter("ClaimAmount");                                       
-             String ClaimReason = request.getParameter("ClaimReason");
-             
-             out.println("Amount:"+ClaimAmount);
-             out.println("Reason:"+ClaimReason);
-         
-             
-             AddClaim claim = new AddClaim();
-             boolean ClaimSuccess = claim.AddClaimtoDB(Double.parseDouble(ClaimAmount), ClaimReason);
-             //ClaimSuccess= false;
-             if(ClaimSuccess)
-             {
-                   out.println("Claim successfully added!"); // think how to display claim successsful text
-                   String message = ("Claim success, Amount is:"+ClaimAmount+" and the Reason is: "+ClaimReason);
+            String ClaimAmount = request.getParameter("ClaimAmount");
+            String ClaimReason = request.getParameter("ClaimReason");
+
+            out.println("Amount:" + ClaimAmount);
+            out.println("Reason:" + ClaimReason);
+
+            AddClaim claim = new AddClaim();
+            boolean ClaimSuccess = claim.AddClaimtoDB(Double.parseDouble(ClaimAmount), ClaimReason);
+            //ClaimSuccess= false;
+            if (ClaimSuccess) {
+                out.println("Claim successfully added!"); // think how to display claim successsful text
+                String message = ("Claim success, Amount is:" + ClaimAmount + " and the Reason is: " + ClaimReason);
 //                   request.getSession().setAttribute("message", message);
 //                   response.sendRedirect("/view/userHome.jsp");
-                   request.setAttribute("message", message);
-                   request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
+                request.setAttribute("message", message);
+                request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
 //                   response.sendRedirect(request.getContextPath()+"userHome");
                 //RequestDispatcher rd = request.getRequestDispatcher("/view/userHome.jsp");
-                  // rd.forward(request, response); // include will put both pages together // forward just the new one
-                    //msg pop success
-             }
-             else
-             {
-                 out.println("Claim failure");
-                 String message = ("Claim fail");
-                   request.setAttribute("message", message);
-                   request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
-                 //can go back to home or continue adding claim
+                // rd.forward(request, response); // include will put both pages together // forward just the new one
+                //msg pop success
+            } else {
+                out.println("Claim failure");
+                String message = ("Claim fail");
+                request.setAttribute("message", message);
+                request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
+                //can go back to home or continue adding claim
                 //msg pop failure
-             }
-            
+            }
+
         } finally {
             out.close();
         }

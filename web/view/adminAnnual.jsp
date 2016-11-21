@@ -14,13 +14,15 @@
     <jsp:include page="headerAdmin.jsp" />
         
     <h1> Annual Turnover </h1>
-    <div data-role="content" class="ui-content" class="table1">
-    <table>
-        <tbody>
+    <div data-role="content" class="table1">
+    <table width="400px">
+        <thead>
             <tr>
-                <td>Total Income </td>
-                <td> £ 100000000.00</td>
+                <th>Total Income </th>
+                <th> £ 100000000.00</th>
             </tr>
+        </thead>
+        <tbody align="center">
             <tr>
                 <td>Total Payouts </td>
                 <td> £ 50000000.00 </td>
