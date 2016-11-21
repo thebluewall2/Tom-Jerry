@@ -11,7 +11,7 @@
 <body>
         <jsp:include page="headerUser.jsp" />
         
-        <h1 align ="left"> Payment </h1>
+        <h1> Payment </h1>
         <form action="userHome.jsp" method="POST" style="width: 400px" align="left">
             User Name: <input type="text" name="userName"><br>
             First Name: <input type="text" name="firstName"><br>

@@ -1,7 +1,8 @@
-<div data-role="page">
+
+<div align="center" data-role="page">
     <!--This is header-->
     <div id="container" data-position="fixed" >
-        <table border="0" class="first_table">
+        <table border="0" >
             <tr>
                 <td>
                     <a href="userHome.jsp"><img src="images/XYZLOGO.png" width="300" height="300" alt="XYZ"/></a>

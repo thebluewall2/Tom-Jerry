@@ -8,6 +8,7 @@ package XYZ;
 import XYZ.methods.AddClaim;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,15 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ClaimServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -48,9 +41,10 @@ public class ClaimServlet extends HttpServlet {
                    out.println("Claim successfully added!"); // think how to display claim successsful text
                    String message = ("Claim success, Amount is:"+ClaimAmount+" and the Reason is: "+ClaimReason);
                    request.setAttribute("message", message);
-                   request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
-//                   RequestDispatcher rd = request.getRequestDispatcher("/view/userHome.jsp");
-//                   rd.forward(request, response); // include will put both pages together // forward just the new one
+                   //request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
+                   response.sendRedirect(request.getContextPath()+"view/userHome.jsp");
+                //RequestDispatcher rd = request.getRequestDispatcher("/view/userHome.jsp");
+                  // rd.forward(request, response); // include will put both pages together // forward just the new one
                     //msg pop success
              }
              else

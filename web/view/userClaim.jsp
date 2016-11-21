@@ -1,25 +1,22 @@
+
 <html>    
 <head>
-    <link type="text/css" rel="stylesheet" href="kxcss.css"/>
-    <link type="text/css" rel="stylesheet" href="pageDesign"/>
+    <link type="text/css" rel="stylesheet" href="pageDesign.css"/>
 </head>
+
 <body>
-    <div data-role="page" align="center">
-        <div data-role="header">
-        <jsp:include page="/view/headerUser.jsp" />
-        </div>
-        
+   <jsp:include page="headerUser.jsp" />        
         
     <!--History-->
-<div data-role="main" class="ui-content">
+<div data-role="content" class="ui-content" class="table1">
     
-    <form action="/XYZDriverAssociation/ClaimServlet" method="POST">
+    <form action="/XYZDriverAssociation/ClaimServlet" method="POST" align="center" >
         
         <center>Claim Amount</center>      
-        <input type="number" rows="1" cols="1" name="ClaimAmount" placeholder="0.00">
+        <input type="number" name="ClaimAmount" placeholder="0.00">
 
         <center>Claim Reason</center>
-        <textarea style="resize:none" type="submit" rows="3" cols="50" name="ClaimReason" placeholder="The reason for this claim is..."></textarea>
+        <textarea style="resize:none" type="submit"  name="ClaimReason" placeholder="The reason for this claim is..."></textarea>
 
         <br>
         <input type="submit" value="Submit">
@@ -68,9 +65,6 @@
 </div>        
   
     
-    <div data-role="footer">
     <jsp:include page="/view/footer.jsp" />
-    </div>
-    </div>
 </body>
 </html>

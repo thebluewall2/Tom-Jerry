@@ -11,9 +11,11 @@
 
 <body>        
     <jsp:include page="headerUser.jsp" />
-        
-    <h1> HOME</h1>
-    <p>$:message</p>
+    <br>
+    <br>
+    <br>
+            <h1><center>Welcome to XYZ Driver Association</center></h1>
+    
     <jsp:include page="footer.jsp" />
 
 </body>

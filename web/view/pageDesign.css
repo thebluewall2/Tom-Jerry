@@ -1,126 +1,169 @@
-        table.first_table 
-        {
-            float: left;
-            width: 800px;
-            height: 100px;
-        }
 
-        img 
-        {
-            float: left;
-            width: 200px;
-            margin-left: 0%;
-            height: 100px;
-        }
-
-        #container{
-	display: inline-block;
-	padding: 5px;
-	margin: 50px;  
-	background: rgba(0,0,0,0.1);
-	position: relative;
-        
-	
-	-webkit-border-radius: 100px;
-	-moz-border-radius: 100px;
-	border-radius: 100px;
-
-	-webkit-box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.4), 0px 1px 1px 0px rgba(255,255,255,.1);
-	-moz-box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.4), 0px 1px 1px 0px rgba(255,255,255,.1);
-	box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.4), 0px 1px 1px 0px rgba(255,255,255,.1);
-
-	-webkit-transition: all .2s ease;
-	-moz-transition: all .2s ease;
-	-ms-transition: all .2s ease;
-	-o-transition: all .2s ease;
-	transition: all .2s ease;
+img 
+{
+    float: left;
+    width: 200px;
+    margin-left: 0%;
+    height: 100px;
 }
 
-        #container ul 
-        {
-	padding: 0;
-	height: 40px;
-	margin: 0;
-	list-style: none;
-	overflow: hidden;
-	
-	-webkit-box-shadow: inset 0px 1px 1px 0px rgba(255,255,255,.2), 0px 1px 2px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: inset 0px 1px 1px 0px rgba(255,255,255,.2), 0px 1px 2px 0px rgba(0,0,0,0.5);
-	box-shadow: inset 0px 1px 1px 0px rgba(255,255,255,.2), 0px 1px 2px 0px rgba(0,0,0,0.5);
-	
-	background: #5c6063;
-	background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.3)));
-	background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
-	background-image: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
-	background-image: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
-	background-image: linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#4d000000',GradientType=0 );
-	
-	-webkit-border-radius: 100px;
-	-moz-border-radius: 100px;
-	border-radius: 100px;
-        }
+#container{
+    display: inline-block;
+    padding: 5px;
+    margin: 50px;  
+    background: rgba(0,0,0,0.1);
+    position: relative;
 
-        #container ul li 
-        {
-	background: rgba(255,255,255,0.0);
-	float: left;
-	text-align: center;
-	border-right: 1px solid #666;
-	border-left: 1px solid #444;
-	
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
 
-        }
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
 
-        #container ul li:hover 
-        {
-	background: rgba(255,255,255,0.08);
-        }
+    -webkit-box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.4), 0px 1px 1px 0px rgba(255,255,255,.1);
+    -moz-box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.4), 0px 1px 1px 0px rgba(255,255,255,.1);
+    box-shadow: inset 0px 1px 2px 0px rgba(0,0,0,0.4), 0px 1px 1px 0px rgba(255,255,255,.1);
 
-        #container ul li:active 
-        {
-	background: rgba(0,0,0,0.08);
-        }
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
 
-        #container ul li:first-child 
-        {
-	border-left: none;
-	-webkit-border-radius: 100px 0 0 100px;
-	-moz-border-radius: 100px 0 0 100px;
-	border-radius: 100px 0 0 100px;
-        }
+#container ul 
+{
+    padding: 0;
+    height: 40px;
+    margin: 0;
+    list-style: none;
+    overflow: hidden;
 
-        #container ul li:last-child 
-        {
-	border-right: none;
-	-webkit-border-radius: 0 100px 100px 0;
-	-moz-border-radius: 0 100px 100px 0;
-	border-radius: 0 100px 100px 0;
-        }
+    -webkit-box-shadow: inset 0px 1px 1px 0px rgba(255,255,255,.2), 0px 1px 2px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: inset 0px 1px 1px 0px rgba(255,255,255,.2), 0px 1px 2px 0px rgba(0,0,0,0.5);
+    box-shadow: inset 0px 1px 1px 0px rgba(255,255,255,.2), 0px 1px 2px 0px rgba(0,0,0,0.5);
 
-        #container ul li a
-        {
-	text-decoration: none;
-	font: 10px/10px Helvetica, sans-serif;
-	color: #ddd;
-	text-transform: uppercase;
-	text-shadow: 0px 1px rgba(0,0,0,0.5);
-	padding: 20px;
+    background: #5c6063;
+    background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.3)));
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
+    background-image: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
+    background-image: -ms-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
+    background-image: linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#4d000000',GradientType=0 );
 
-        }
-        
-        h1 
-        { 
-            color: #696969;
-            max-width: 100%;
-            font-family: "Helvetica", sans-serif;
-            font-size: 30px; 
-            font-weight:lighter; 
-            margin: 20px 0 20px; 
-            text-transform: uppercase; 
-        }
-        
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+}
+
+#container ul li 
+{
+    background: rgba(255,255,255,0.0);
+    float: left;
+    text-align: center;
+    border-right: 1px solid #666;
+    border-left: 1px solid #444;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+
+#container ul li:hover 
+{
+    background: rgba(255,255,255,0.08);
+}
+
+#container ul li:active 
+{
+    background: rgba(0,0,0,0.08);
+}
+
+#container ul li:first-child 
+{
+    border-left: none;
+    -webkit-border-radius: 100px 0 0 100px;
+    -moz-border-radius: 100px 0 0 100px;
+    border-radius: 100px 0 0 100px;
+}
+
+#container ul li:last-child 
+{
+    border-right: none;
+    -webkit-border-radius: 0 100px 100px 0;
+    -moz-border-radius: 0 100px 100px 0;
+    border-radius: 0 100px 100px 0;
+}
+
+#container ul li a
+{
+    text-decoration: none;
+    font: 10px/10px Helvetica, sans-serif;
+    color: #ddd;
+    text-transform: uppercase;
+    text-shadow: 0px 1px rgba(0,0,0,0.5);
+    padding: 20px;
+
+}
+
+h1 
+{ 
+    color: #696969;
+    max-width: 100%;
+    font-family: "Helvetica", sans-serif;
+    font-size: 30px; 
+    font-weight:lighter; 
+    margin: 20px 0 20px; 
+    text-transform: uppercase; 
+}
+
+body {
+	background: #fafafa url(http://jackrugile.com/images/misc/noise-diagonal.png);
+	color: #444;
+	font: 100%/30px 'Helvetica Neue', helvetica, arial, sans-serif;
+	text-shadow: 0 1px 0 #fff;
+}
+
+strong {
+	font-weight: bold; 
+}
+
+em {
+	font-style: italic; 
+}
+
+table1 {
+	background: #f5f5f5;
+	border-collapse: separate;
+	box-shadow: inset 0 1px 0 #fff;
+	font-size: 12px;
+	line-height: 24px;
+	margin: 30px auto;
+	text-align: left;
+	width: 800px;
+}	
+
+th {
+	background: url(http://jackrugile.com/images/misc/noise-diagonal.png), linear-gradient(#777, #444);
+	border-left: 1px solid #555;
+	border-right: 1px solid #777;
+	border-top: 1px solid #555;
+	border-bottom: 1px solid #333;
+	box-shadow: inset 0 1px 0 #999;
+	color: #fff;
+  font-weight: bold;
+	padding: 10px 15px;
+	position: relative;
+	text-shadow: 0 1px 0 #000;	
+}
+
+td {
+        border: 0px solid transparent;
+	padding: 10px 15px;
+	position: relative;
+	transition: all 300ms;
+}
+
+
+
