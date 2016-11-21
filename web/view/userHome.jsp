@@ -13,6 +13,7 @@
     <jsp:include page="headerUser.jsp" />
         
     <h1> HOME</h1>
+    <p>$:message</p>
     <jsp:include page="footer.jsp" />
 
 </body>

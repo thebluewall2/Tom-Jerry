@@ -12,6 +12,10 @@
         <servlet-name>AddClaimServlet</servlet-name>
         <servlet-class>AddClaimServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ClaimServlet</servlet-name>
+        <servlet-class>XYZ.ClaimServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>adminServlet</servlet-name>
         <url-pattern>/adminServlet</url-pattern>
@@ -30,7 +34,11 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddClaimServlet</servlet-name>
-        <url-pattern>/AddClaimServlet</url-pattern>
+        <url-pattern>/AddClaimServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ClaimServlet</servlet-name>
+        <url-pattern>/ClaimServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
