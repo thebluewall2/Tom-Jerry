@@ -6,6 +6,7 @@
 package XYZ.Controller;
 
 import XYZ.methods.AddClaim;
+import XYZ.methods.OpenConnectionSQL;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -32,21 +33,18 @@ public class ClaimServlet extends HttpServlet {
 
             AddClaim claim = new AddClaim();
             boolean ClaimSuccess = claim.AddClaimtoDB(Double.parseDouble(ClaimAmount), ClaimReason);
-            //ClaimSuccess= false;
-            if (ClaimSuccess) {
-                out.println("Claim successfully added!"); // think how to display claim successsful text
+            
+            //open connection                
+            
+                
+                
+            if (ClaimSuccess) {                
                 String message = ("Claim success, Amount is:" + ClaimAmount + " and the Reason is: " + ClaimReason);
-//                   request.getSession().setAttribute("message", message);
-//                   response.sendRedirect("/view/userHome.jsp");
                 request.setAttribute("message", message);
                 request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
-//                   response.sendRedirect(request.getContextPath()+"userHome");
-                //RequestDispatcher rd = request.getRequestDispatcher("/view/userHome.jsp");
-                // rd.forward(request, response); // include will put both pages together // forward just the new one
-                //msg pop success
-            } else {
-                out.println("Claim failure");
-                String message = ("Claim fail");
+
+            } else {                
+                String message = ("Claim failure");
                 request.setAttribute("message", message);
                 request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
                 //can go back to home or continue adding claim
