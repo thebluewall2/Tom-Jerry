@@ -1,7 +1,9 @@
-package XYZ;
+package XYZ.Controller;
 
+import XYZ.methods.Login;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +23,17 @@ public class loginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         
+        String memberStatus = Login.verifyLogin(username, password);
         
+        if (memberStatus.equals("ADMIN")) {
+            response.sendRedirect("view/adminHome.jsp");
+        } else if (memberStatus.equals("APPLIED") || (memberStatus.equals("APPROVED"))) {
+            response.sendRedirect("view/userHome.jsp");
+        } else {
+            request.setAttribute("loginError", true);
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            rd.forward(request, response);
+        }
     }
 
 }

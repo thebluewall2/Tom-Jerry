@@ -26,7 +26,7 @@
     <div align="center" >
         <br>
         <br>
-        <form action="/loginServlet.do" method="POST" style="width:400px;font-family: Helvetica-light"> 
+        <form action="loginServlet.do" method="POST" style="width:400px;font-family: Helvetica-light"> 
             Username : <br>
             <input type="text" name="username">
             

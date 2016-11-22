@@ -11,7 +11,7 @@ public class Login {
     static final String USER = "root";
     static final String PASS = "aaaaa1";
 
-    public static boolean verifyLogin(String username, String password) {
+    public static String verifyLogin(String username, String password) {
         Connection conn = null;
         Statement stmt = null;
         
@@ -28,7 +28,7 @@ public class Login {
                 String pass = rs.getString("password");
                 
                 if (username.equals(id) && password.equals(pass)) {
-                    return true;
+                    return rs.getString("status");
                 }   
             }
             
@@ -56,7 +56,7 @@ public class Login {
         
         
         
-        return false;
+        return "non-member";
         
     }
     
