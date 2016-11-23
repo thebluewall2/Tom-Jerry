@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
 </head>
 
 <body>
@@ -20,7 +21,8 @@
         <input type="number" name="ClaimAmount" placeholder="0.00">
 
         <center>Claim Reason</center>
-        <textarea style="resize:none" type="submit"  name="ClaimReason" placeholder="The reason for this claim is..."></textarea>
+        <textarea style="resize:none" type="submit"  name="ClaimReason" placeholder="The reason for this claim is..."></textarea>                
+        
         <input type="submit" value="Submit">
         
     </form>

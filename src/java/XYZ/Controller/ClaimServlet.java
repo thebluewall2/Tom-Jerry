@@ -40,7 +40,7 @@ public class ClaimServlet extends HttpServlet {
                 
             if (ClaimSuccess.equals("success")) {                
                 String message = ("Claim success, Amount is:" + ClaimAmount + " and the Reason is: " + ClaimReason);
-                request.setAttribute("message", message);
+                request.setAttribute("message", message);                
                 request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
 
             } else {                

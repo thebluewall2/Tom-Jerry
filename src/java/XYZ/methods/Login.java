@@ -55,8 +55,7 @@ public class Login {
                 //do nothing
             }
         }
-        
-        
+             
         
         return "non-member";
         
