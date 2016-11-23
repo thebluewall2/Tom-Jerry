@@ -4,6 +4,7 @@ package XYZ.Controller;
 import XYZ.methods.CheckPayment;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,11 +21,11 @@ public class checkPaymentServlet extends HttpServlet {
         HttpSession session = request.getSession();
         String memberID = (String) session.getAttribute("memberID");
         
-        response.getWriter().println(memberID);
-        
         float balance = CheckPayment.checkPayment(memberID);
         request.setAttribute("balance", balance);
-        response.sendRedirect("view/userPayment.jsp");
+        
+        RequestDispatcher rd = request.getRequestDispatcher("view/userPayment.jsp");
+        rd.forward(request, response);
         
     }
 

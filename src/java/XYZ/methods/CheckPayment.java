@@ -17,7 +17,7 @@ public class CheckPayment {
     public static float checkPayment(String memberID) {
         Connection con = null;
         Statement statement = null;
-
+        
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection(DB_URL, USER, PASS);
