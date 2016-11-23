@@ -1,4 +1,3 @@
-
 package XYZ.Controller;
 
 import XYZ.methods.userPayment;
@@ -24,9 +23,8 @@ public class paymentServlet extends HttpServlet {
         String paymentMethod = request.getParameter("paymentMethod");
         float amount = Float.parseFloat(request.getParameter("amount"));
 
-        System.out.println(paymentMethod + amount);
         userPayment.userPayment(memberID, paymentMethod, amount);
-        response.sendRedirect("view/paymentSuccess.jsp");
+        response.sendRedirect("view/userHome.jsp");
     }
 
 }

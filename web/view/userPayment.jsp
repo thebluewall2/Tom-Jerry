@@ -19,7 +19,7 @@
                 <thead>
                     <tr>
                         <th>Outstanding Balance</th>
-                        <th> </th>
+                        <th> ${requestScope.balance}</th>
                     </tr>
                 </thead>
             </table>

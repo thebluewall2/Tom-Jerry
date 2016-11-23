@@ -9,7 +9,7 @@ public class Login {
 
     //  Database credentials
     static final String USER = "root";
-    static final String PASS = "aaaaa1";
+    static final String PASS = "";
 
     public static String verifyLogin(String username, String password) {
         Connection conn = null;
