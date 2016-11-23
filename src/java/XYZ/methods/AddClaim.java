@@ -7,6 +7,7 @@ package XYZ.methods;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -17,7 +18,7 @@ import java.sql.ResultSet;
 public class AddClaim {
     
     Statement stmt = null;
-    
+    ResultSet rs = null;
     public AddClaim(){
         
     }
@@ -36,35 +37,26 @@ public class AddClaim {
 //           stmt = (Statement)openconn.conn.createStatement();                   
 //           String query = "INSERT INTO claims (id, mem_id, date, rationale, status, amount) values (5, 'happyman', '2015-12-11', 'i dont know', 'SUSPENDED', 1000)";            
            
-        int id;
         String mem_id;
-        String date;
         String rationale;
         String status;
         int amount;
 
-       String query = "INSERT INTO claims"
-				+ "(id, mem_id, date, rationale, status, amount) "
-               + "VALUES (?,?,?,?,?,?)";
+     String query = "INSERT INTO claims (mem_id, date, rationale, status, amount) VALUES (?,now(),?,?,?)";
           
         PreparedStatement ps = null;
        ps = openconn.conn.prepareStatement(query);
-//       String query2 = "SELECT * from claims ";
-
-
-       id = 5;
-       mem_id = "happyman";
-       date = "2015-12-11";
-       status = "SUSPENDED";
+               
+       mem_id = "me3";   
+       status = "APPROVED";
        rationale = ClaimReason;
        amount = ClaimAmount;
        
-                ps.setInt(1, id);
-		ps.setString(2, mem_id);
-		ps.setString(3, date);
-		ps.setString(4, rationale);
-                ps.setString(5, status);
-                ps.setInt(6, amount);
+                //ps.setInt(1, id);
+		ps.setString(1, mem_id);		
+		ps.setString(2, rationale);
+                ps.setString(3, status);
+                ps.setInt(4, amount);
                 
 		// execute insert SQL stetement
 		ps.executeUpdate();
