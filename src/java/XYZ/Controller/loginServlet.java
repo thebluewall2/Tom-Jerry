@@ -26,8 +26,10 @@ public class loginServlet extends HttpServlet {
         String memberStatus = Login.verifyLogin(username, password);
         
         if (memberStatus.equals("ADMIN")) {
+            request.setAttribute("loginError", false);
             response.sendRedirect("view/adminHome.jsp");
         } else if (memberStatus.equals("APPLIED") || (memberStatus.equals("APPROVED"))) {
+            request.setAttribute("loginError", false);
             response.sendRedirect("view/userHome.jsp");
         } else {
             request.setAttribute("loginError", true);
