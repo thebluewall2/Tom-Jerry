@@ -5,7 +5,6 @@
  */
 package XYZ.Controller;
 
-import XYZ.methods.Login;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -17,14 +16,17 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Adrian
  */
-public class membershipServlet extends HttpServlet {
-
+public class approveServlet extends HttpServlet {
+String DB_URL = "jdbc:mysql://localhost:3306/XYZ_Assoc?autoReconnect=true&useSSL=false";
+        String USER = "root";
+        String PASS = "password";
+        Connection conn = null;
+        Statement stmt = null;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -36,39 +38,37 @@ public class membershipServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      
-        Connection conn = null;
-        Statement stmt = null;
-        String membershipStatus = "";
-        String expiryDate =  "";
-        String DB_URL = "jdbc:mysql://localhost:3306/XYZ_Assoc?autoReconnect=true&useSSL=false";
-        String USER = "root";
-        String PASS = "password";
-        
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
         try {
+            String approveUsername = request.getParameter("approveUsername");
+            
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            String username = "adrianchin";//need to get username from session
             stmt = conn.createStatement();
-            String sql_query = "SELECT status, expiry from users where id = 'adrianchin'";
-            ResultSet rs = stmt.executeQuery(sql_query);  
+            String sql_query = "SELECT status from users where id =" + "'" + approveUsername + "'";
+            ResultSet rs = stmt.executeQuery(sql_query);
             
-             membershipStatus = rs.getString("status");
-             expiryDate = rs.getString("expiry");
-            request.setAttribute("membershipStatus", membershipStatus);
-            request.setAttribute("expiryDate", expiryDate);
-            request.getRequestDispatcher("/view/userMembership.jsp").forward(request, response);
-            
+            while (rs.next()) {
+                 String status = rs.getString("status");
+                 
+                 if (status.equals("APPROVED")){
+                     String message = "Member has already been approved";
+                     request.setAttribute("message", message);
+                request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
+                 }else {
+                     String sql_query_approve = "UPDATE users SET status='APPROVED' WHERE id=" + "'" + approveUsername + "'";
+                     stmt.executeQuery(sql_query_approve);
+                 }
+                
+            }                      
+
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
-           
-            
-        
-        
-    }
+        }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

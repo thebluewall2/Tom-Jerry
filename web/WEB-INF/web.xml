@@ -17,6 +17,10 @@
         <servlet-class>XYZ.Controller.ClaimServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>membershipServlet</servlet-name>
+        <servlet-class>XYZ.Controller.membershipServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>userHome</servlet-name>
         <jsp-file>/view/userHome.jsp</jsp-file>
     </servlet>
@@ -25,8 +29,16 @@
         <jsp-file>/view/userClaim.jsp</jsp-file>
     </servlet>
     <servlet>
+        <servlet-name>userMembership</servlet-name>
+        <jsp-file>/view/userMembership.jsp</jsp-file>
+    </servlet>
+    <servlet>
         <servlet-name>loginServlet</servlet-name>
         <servlet-class>XYZ.Controller.loginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>approveServlet</servlet-name>
+        <servlet-class>XYZ.Controller.approveServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>adminServlet</servlet-name>
@@ -61,8 +73,16 @@
         <url-pattern>/userClaims</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>membershipServlet</servlet-name>
+        <url-pattern>/membershipServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>loginServlet</servlet-name>
         <url-pattern>/loginServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>approveServlet</servlet-name>
+        <url-pattern>/approveServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -11,7 +11,16 @@
 <body>        
     <jsp:include page="headerAdmin.jsp" />
         
-    <h1> Members </h1>
+    <h1> Approve Provisional Members </h1>
+    <form action="/XYZDriverAssociation/approveServlet" style="width:400px" method="post">
+        
+        <center>Enter Member's Username</center>              
+        <input type="text" name="approveUsername" placeholder="e.g. me-aydin"><BR>
+
+        <br>
+        <input type="submit" value="Approve">
+        
+    </form>
     <jsp:include page="footer.jsp" />
     
     

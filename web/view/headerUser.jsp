@@ -11,7 +11,7 @@
                 <td>
                     <ul>
                         <li><a href="/XYZDriverAssociation/view/userHome.jsp">Home</a></li>
-                        <li><a href="/XYZDriverAssociation/view/userMembership.jsp">Membership</a></li>
+                        <li><a href="/XYZDriverAssociation/membershipServlet">Membership</a></li>
                         <li><a href="/XYZDriverAssociation/view/userPayment.jsp">Payment</a></li>
                         <li><a href="/XYZDriverAssociation/view/userClaim.jsp">Claim Subsidy</a></li>
                         <li><a href="/XYZDriverAssociation/view/userSettings.jsp">Settings</a></li>
