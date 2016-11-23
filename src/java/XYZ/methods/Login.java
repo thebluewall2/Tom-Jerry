@@ -5,11 +5,11 @@ import java.sql.*;
 public class Login {
 
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost/XYZ_Assoc?autoReconnect=true&useSSL=false";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/XYZ_Assoc?autoReconnect=true&useSSL=false";
 
     //  Database credentials
     static final String USER = "root";
-    static final String PASS = "";
+    static final String PASS = "password";
 
     public static String verifyLogin(String username, String password) {
         Connection conn = null;
