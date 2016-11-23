@@ -9,7 +9,7 @@ public class Login {
 
     //  Database credentials
     static final String USER = "root";
-    static final String PASS = "aaaaa1";
+    static final String PASS = "";
 
     public static String verifyLogin(String username, String password) {
         Connection conn = null;
@@ -23,14 +23,16 @@ public class Login {
             String sql_query = "SELECT * from users";
             ResultSet rs = stmt.executeQuery(sql_query);
             
-            while (rs.next()) {
+            
+            while (rs.next()) {                
                 String id = rs.getString("id");
                 String pass = rs.getString("password");
-                
-                if (username.equals(id) && password.equals(pass)) {
+
+                if (username.equals(id) && password.equals(pass)) {                                                     
                     return rs.getString("status");
                 }   
             }
+  
             
             rs.close();
         } catch (SQLException e) {

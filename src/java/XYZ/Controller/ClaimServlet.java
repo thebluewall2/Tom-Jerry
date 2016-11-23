@@ -32,13 +32,13 @@ public class ClaimServlet extends HttpServlet {
             out.println("Reason:" + ClaimReason);
 
             AddClaim claim = new AddClaim();
-            boolean ClaimSuccess = claim.AddClaimtoDB(Double.parseDouble(ClaimAmount), ClaimReason);
+            String ClaimSuccess = claim.AddClaimtoDB(Integer.parseInt(ClaimAmount), ClaimReason);
             
             //open connection                
             
                 
                 
-            if (ClaimSuccess) {                
+            if (ClaimSuccess.equals("success")) {                
                 String message = ("Claim success, Amount is:" + ClaimAmount + " and the Reason is: " + ClaimReason);
                 request.setAttribute("message", message);
                 request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);

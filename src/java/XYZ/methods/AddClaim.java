@@ -5,54 +5,69 @@
  */
 package XYZ.methods;
 
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 
 /**
  *
  * @author yusuk
  */
 public class AddClaim {
+    
+    Statement stmt = null;
+    
     public AddClaim(){
         
     }
     
-    public boolean AddClaimtoDB(Double d,String string)
+    public String AddClaimtoDB(int ClaimAmount,String ClaimReason)
     {
+       
        OpenConnectionSQL openconn = new OpenConnectionSQL();
        
+        openconn.OpenConnection();
       // create a Statement from the connection
         
-
+        
         // insert the data
         try{
-//            String query = "INSERT INTO claims ('id', 'mem_id', 'date', 'rationale', 'status', 'amount')" +
-//                                    "VALUES ('4', 'liewsoonhen', '2015-12-12', 'Just need more money', 'APPROVED' '100')";
-            
-            Statement statement = openconn.connection.createStatement();
-            
-//            statement.executeUpdate(SQLStatment);
-//              statement.executeQuery(query);
+//           stmt = (Statement)openconn.conn.createStatement();                   
+//           String query = "INSERT INTO claims (id, mem_id, date, rationale, status, amount) values (5, 'happyman', '2015-12-11', 'i dont know', 'SUSPENDED', 1000)";            
+           
+        int id;
+        String mem_id;
+        String date;
+        String rationale;
+        String status;
+        int amount;
+
+       String query = "INSERT INTO claims"
+				+ "(id, mem_id, date, rationale, status, amount) "
+               + "VALUES (?,?,?,?,?,?)";
+          
+        PreparedStatement ps = null;
+       ps = openconn.conn.prepareStatement(query);
+//       String query2 = "SELECT * from claims ";
+
+
+       id = 5;
+       mem_id = "happyman";
+       date = "2015-12-11";
+       status = "SUSPENDED";
+       rationale = ClaimReason;
+       amount = ClaimAmount;
        
-                // the mysql insert statement
-               String query = " insert into claims (id, mem_id, date, rationale, status, amount)"
-                 + " values (?, ?, ?, ?, ?, ?)";
-
-               // create the mysql insert preparedstatement
-               PreparedStatement preparedStmt = openconn.connection.prepareStatement(query);
-               preparedStmt.setString (1, "4");
-               preparedStmt.setString (2, "liewsoonhen");
-               preparedStmt.setString (3, "2015-12-12");
-               preparedStmt.setString (4, "Just need more money");
-               preparedStmt.setString (5, "APPROVED");
-               preparedStmt.setInt    (6, 100);
-
-         // execute the preparedstatement
-         preparedStmt.execute();
-
-
-            
+                ps.setInt(1, id);
+		ps.setString(2, mem_id);
+		ps.setString(3, date);
+		ps.setString(4, rationale);
+                ps.setString(5, status);
+                ps.setInt(6, amount);
+                
+		// execute insert SQL stetement
+		ps.executeUpdate();
             
         }catch(Exception e)
         {
@@ -65,7 +80,7 @@ public class AddClaim {
        //close sql connection
        openconn.CloseConn();
        
-       return true;//return to servlet
+       return "success";//return to servlet
     }
 }
 
