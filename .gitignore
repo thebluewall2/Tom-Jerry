@@ -1,4 +1,5 @@
 /build/
 /nbproject/private/
 /dist/
-echo .DS_Store >> ~/.gitignore_global
+/nbproject/private/project.xml
+
