@@ -52,10 +52,18 @@ public class SignUp {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.createStatement();
 
+            //add member info into users table
             String sql_query = "INSERT into users "
-                    + "VALUES ('" + username + "', '" + password + "', " + "'APPLIED')";
+                    + "VALUES ('" + username + "', '" + password + "', 'APPLIED')";
+//            System.out.println(sql_query);
+//            stmt.executeUpdate(sql_query);
+            
+            //now add member info into members table
+            sql_query = "INSERT into members " +
+                    "VALUES ('" + username + "', '" + name + "', '" + address +
+                            "', " + dob + ", " + dor + ", 'APPLIED', 0)";
+            
             System.out.println(sql_query);
-            stmt.executeUpdate(sql_query);
 
         } catch (SQLException e) {
             e.printStackTrace();
