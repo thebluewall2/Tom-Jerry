@@ -9,7 +9,7 @@ public class Login {
 
     //  Database credentials
     static final String USER = "root";
-    static final String PASS = "";
+    static final String PASS = "aaaaa1";
 
     public static String verifyLogin(String username, String password) {
         Connection conn = null;
@@ -53,8 +53,6 @@ public class Login {
                 //do nothing
             }
         }
-        
-        
         
         return "non-member";
         
