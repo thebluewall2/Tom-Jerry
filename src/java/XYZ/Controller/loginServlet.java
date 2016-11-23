@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class loginServlet extends HttpServlet {
 
@@ -24,6 +25,9 @@ public class loginServlet extends HttpServlet {
         String password = request.getParameter("password");
         
         String memberStatus = Login.verifyLogin(username, password);
+        
+        HttpSession session = request.getSession();
+        session.setAttribute("memberID", username);
         
         if (memberStatus.equals("ADMIN")) {
             request.setAttribute("loginError", false);

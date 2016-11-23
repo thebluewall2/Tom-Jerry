@@ -32,7 +32,6 @@ public class Login {
                     return rs.getString("status");
                 }   
             }
-  
             
             rs.close();
         } catch (SQLException e) {
