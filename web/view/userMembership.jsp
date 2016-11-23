@@ -15,10 +15,12 @@
     <h1> Membership </h1>
     
     <h2> Membership Status </h2>
-    <%= request.getAttribute("membershipStatus")%>
+ 
+    <h3>${membershipStatus}</h3>
     
     <h2> Membership Expiry Date </h2>
-    <%=(String)(request.getAttribute("expiryDate"))%>
+    <%=(String)(request.getAttribute("membershipStatus"))%>
+
    
     
     <jsp:include page="footer.jsp" />
