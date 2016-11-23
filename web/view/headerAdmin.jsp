@@ -5,7 +5,7 @@
     <table border="0" class="first_table">
         <tr>
             <td>
-                <a href="adminHome.jsp"><img src="images/XYZLOGO.png" width="300" height="300" alt="XYZ"/></a>
+                <a href="adminHome.jsp"><img src="images/XYZLOGO.png" width="300" height="300" alt="XYZ" /></a>
             </td>
 
             <td>

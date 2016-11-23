@@ -17,16 +17,17 @@
     <form action="/XYZDriverAssociation/ClaimServlet" style="width:400px" method="post">
         
         <center>Claim Amount</center>              
-        <input type="number" name="ClaimAmount" placeholder="0.00"><BR>
+        <input type="number" name="ClaimAmount" placeholder="0.00">
 
-        <center>Claim Reason</center><BR>
-        <textarea type="submit"  name="ClaimReason" placeholder="The reason for this claim is..."></textarea>
-
-        <br>
+        <center>Claim Reason</center>
+        <textarea style="resize:none" type="submit"  name="ClaimReason" placeholder="The reason for this claim is..."></textarea>
         <input type="submit" value="Submit">
         
     </form>
+    <br><br>
         <h1><center>Claims History</center></h1>
+        <br>
+        
         
 <table>
   <thead>

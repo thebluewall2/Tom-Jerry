@@ -1,15 +1,13 @@
 package XYZ.methods;
 
 import java.sql.*;
+import java.util.Date;
 
 public class userPayment {
     
     private String id;
     private String memberID;
     private float amount;
-    private String firstName;
-    private String lastName;
-    private int invoiceNumber;
     private String paymentMethod;
     private Timestamp paymentDate;
     
@@ -19,73 +17,14 @@ public class userPayment {
     static final String USER ="root";
     static final String PASS ="aaaaa1";
             
-
-    public Timestamp getPaymentDate() 
-    {
-        return paymentDate;
-    }
-
-    public int getInvoiceNumber() 
-    {
-        return invoiceNumber;
-    }
-
-    public String getPaymentMethod() 
-    {
-        return paymentMethod;
-    }
-
-    public String getFirstName() 
-    {
-        return firstName;
-    }
     
-    public String getLastName()
-    {
-        return lastName;
-    }
-    
-    public String getMemberID() 
-    {
-        return memberID;
-    }
-
-    public float getAmount() 
-    {
-        return amount;
-    }
-    
-    public String getID()
-    {
-        return id;
-    }
-
-
-    public userPayment(String id, String memberID, String firstName, String lastName, int invoiceNumber, String paymentMethod, Timestamp paymentDate, float amount) 
-    {
-        this.id = id;
-        this.memberID = memberID;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.amount = amount;
-        this.invoiceNumber = invoiceNumber;
-        this.paymentMethod = paymentMethod;
-        this.paymentDate = paymentDate;
-        
-    }
-
-    
-    public userPayment(String id, String memberID, float amount, String status, String cash) 
-    {
-        this.id=id;
-        this.memberID = memberID;
-        this.amount = amount;
-    }
-    
-    public static boolean userPayment (String userID, String memberID, String paymentMethod, float amount, Timestamp paymentDate)
+    public static boolean userPayment (String memberID, String paymentMethod, float amount)
     {
         Connection con = null;
         Statement statement = null;
+        
+        Date date = new Date();
+        java.sql.Date paymentDate = new java.sql.Date(date.getTime());
         
         try
         {
@@ -93,18 +32,11 @@ public class userPayment {
             con = DriverManager.getConnection(DB_URL, USER,PASS);
             statement = con.createStatement();
             
-            String sql_query = "SELECT * from payments";
-            ResultSet resultSet = statement.executeQuery(sql_query);
+            String sql_query = "INSERT into payments (mem_id, type_of_payment, amount, date) " + 
+                    "VALUES ('" + memberID + "', '" +  paymentMethod + "', " + amount +
+                    ", " + paymentDate + ")";
             
-            while (resultSet.next())
-            {
-                String id = resultSet.getString("id");
-                String mem_id = resultSet.getString("mem_id");
-                String typeOfPayment = resultSet.getString("type_of_payment");
-                String amountToPay = resultSet.getString("amount");
-                String date = resultSet.getString("date");
-                return true;
-            }
+            statement.executeUpdate(sql_query);
                 
         }
         

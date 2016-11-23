@@ -7,11 +7,7 @@
     <servlet>
         <servlet-name>paymentServlet</servlet-name>
         <servlet-class>XYZ.Controller.paymentServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>AddClaimServlet</servlet-name>
-        <servlet-class>AddClaimServlet</servlet-class>
-    </servlet>
+    </servlet>  
     <servlet>
         <servlet-name>ClaimServlet</servlet-name>
         <servlet-class>XYZ.Controller.ClaimServlet</servlet-class>
@@ -47,10 +43,6 @@
     <servlet-mapping>
         <servlet-name>paymentServlet</servlet-name>
         <url-pattern>/paymentServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AddClaimServlet</servlet-name>
-        <url-pattern>/AddClaimServlet.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ClaimServlet</servlet-name>
