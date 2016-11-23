@@ -61,7 +61,7 @@ public class SignUp {
             //now add member info into members table
             sql_query = "INSERT into members " +
                     "VALUES ('" + username + "', '" + name + "', '" + address +
-                            "', '" + dob + "', '" + dor + "', 'APPLIED', 0)";
+                            "', '" + dob + "', '" + dor + "', 'APPLIED', 10)";
             stmt.executeUpdate(sql_query);
 
         } catch (SQLException e) {
