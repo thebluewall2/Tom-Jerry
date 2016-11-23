@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class loginServlet extends HttpServlet {
 
@@ -25,9 +26,14 @@ public class loginServlet extends HttpServlet {
         
         String memberStatus = Login.verifyLogin(username, password);
         
+        HttpSession session = request.getSession();
+        session.setAttribute("memberID", username);
+        
         if (memberStatus.equals("ADMIN")) {
+            request.setAttribute("loginError", false);
             response.sendRedirect("view/adminHome.jsp");
         } else if (memberStatus.equals("APPLIED") || (memberStatus.equals("APPROVED"))) {
+            request.setAttribute("loginError", false);
             response.sendRedirect("view/userHome.jsp");
         } else {
             request.setAttribute("loginError", true);

@@ -8,32 +8,38 @@
         <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
         <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
         <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
     </head>
 
     <body>
         <jsp:include page="headerUser.jsp" />
 
         <h1> Payment </h1>
-        <form action="userHome.jsp" method="POST" style="width: 400px">
-            First Name: <input type="text" name="firstName" placeholder="First Name"><br>
-            Last Name: <input type="text" name ="lastName" placeholder="Surname"><br>
-            Amount: <input type="text" name ="amount" placeholder="£0.00"><br>
+        <div data-role="content" class="table1">
+            <table width="400px">
+                <thead>
+                    <tr>
+                        <th>Outstanding Balance</th>
+                        <th> ${requestScope.balance}</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <br><br>
+        <form action="/XYZDriverAssociation/paymentServlet" method="POST" style="width: 400px">
             Payment Method: 
             <select name="paymentMethod">
                 <option value="Cash">Cash</option>
                 <option value="Card">Card</option>
             </select>
-            Payment Date:
-                <input type="date" name="paymentDate"/>
-
-
+            Amount: <input type="text" name ="amount" placeholder="£0.00"><br>
             <br>
-            <input type="submit" value="Confirm">
+
+            <input type="submit" value="Confirm" >
 
         </form>
 
         <jsp:include page="footer.jsp" />
     </body>
 </html>
+
 

@@ -7,7 +7,7 @@
     <servlet>
         <servlet-name>paymentServlet</servlet-name>
         <servlet-class>XYZ.Controller.paymentServlet</servlet-class>
-    </servlet>  
+    </servlet>
     <servlet>
         <servlet-name>ClaimServlet</servlet-name>
         <servlet-class>XYZ.Controller.ClaimServlet</servlet-class>
@@ -23,6 +23,14 @@
     <servlet>
         <servlet-name>loginServlet</servlet-name>
         <servlet-class>XYZ.Controller.loginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>signUp</servlet-name>
+        <servlet-class>XYZ.Controller.signUpServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>checkPayment</servlet-name>
+        <servlet-class>XYZ.Controller.checkPaymentServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>adminServlet</servlet-name>
@@ -55,6 +63,14 @@
     <servlet-mapping>
         <servlet-name>loginServlet</servlet-name>
         <url-pattern>/loginServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>signUp</servlet-name>
+        <url-pattern>/signUpServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>checkPayment</servlet-name>
+        <url-pattern>/checkPaymentServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

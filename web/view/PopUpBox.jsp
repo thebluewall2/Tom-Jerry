@@ -9,13 +9,6 @@
 </head>
 <body>    
     
-    <script> 
-    
-    document.getElementById('popup').style.display='none'
-    document.getElementById('popup').style.display='block'
-    </script>  
-    
-    
 <div id="popup" class="container">
   <div class="alert alert-success alert-dismissible fade in">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">x</a>${message}
