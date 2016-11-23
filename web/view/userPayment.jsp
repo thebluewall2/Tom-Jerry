@@ -16,21 +16,17 @@
 
         <h1> Payment </h1>
         <form action="userHome.jsp" method="POST" style="width: 400px">
-            First Name: <input type="text" name="firstName" placeholder="First Name"><br>
-            Last Name: <input type="text" name ="lastName" placeholder="Surname"><br>
-            Amount: <input type="text" name ="amount" placeholder="£0.00"><br>
             Payment Method: 
             <select name="paymentMethod">
                 <option value="Cash">Cash</option>
                 <option value="Card">Card</option>
             </select>
+            Amount: <input type="text" name ="amount" placeholder="£0.00"><br>
             Payment Date:
                 <input type="date" name="paymentDate"/>
-
-
             <br>
+            
             <input type="submit" value="Confirm">
-
         </form>
 
         <jsp:include page="footer.jsp" />
