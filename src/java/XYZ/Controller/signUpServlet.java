@@ -5,6 +5,7 @@ import XYZ.methods.SignUp;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,11 +27,17 @@ public class signUpServlet extends HttpServlet {
         String address = request.getParameter("address");
         String dob = request.getParameter("dob");
         
+        String userInfo[] = new String[2];
+        
         System.out.println(name + address + dob);
         
-        SignUp.SignUpNewMember(name, address, dob);
+        userInfo = SignUp.SignUpNewMember(name, address, dob);
         
+        request.setAttribute("username", userInfo[0]);
+        request.setAttribute("password", userInfo[1]);
         
+        RequestDispatcher rd = request.getRequestDispatcher("/view/signUpSuccess.jsp");
+        rd.forward(request, response);
     }
 
 }

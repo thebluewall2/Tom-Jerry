@@ -15,7 +15,7 @@
             <input type="text" name="name">
 
             Address : <br>
-            <textarea id="address" rows="10" cols="70"></textarea>
+            <textarea name="address" rows="10" cols="70"></textarea>
 
             Date of birth : <br>
             <input type="text" name="dob">

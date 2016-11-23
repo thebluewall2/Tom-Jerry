@@ -21,14 +21,15 @@ public class SignUp {
     static final String USER = "root";
     static final String PASS = "aaaaa1";
     
-    public static void main(String[] args) {
-        SignUpNewMember("James Bond", "12", "30/03/1995");
-    }
-    
-    public static void SignUpNewMember(String name, String address, String dateOfBirth) {
+    public static String[] SignUpNewMember(String name, String address, String dateOfBirth) {
 
         String username = generateUsername(name);
         String password = generatePassword(dateOfBirth);
+        //this variable is to be returned to the servlet
+        String userInfo[] = new String[2];
+        userInfo[0] = username;
+        userInfo[1] = password;
+
 
         Connection conn = null;
         Statement stmt = null;
@@ -60,7 +61,7 @@ public class SignUp {
             //now add member info into members table
             sql_query = "INSERT into members " +
                     "VALUES ('" + username + "', '" + name + "', '" + address +
-                            "', " + dob + ", " + dor + ", 'APPLIED', 0)";
+                            "', '" + dob + "', '" + dor + "', 'APPLIED', 0)";
             stmt.executeUpdate(sql_query);
 
         } catch (SQLException e) {
@@ -84,7 +85,7 @@ public class SignUp {
                 //do nothing
             }
         }
-
+        return userInfo;
     }
 
     public static String generateUsername(String name) {
