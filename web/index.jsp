@@ -1,5 +1,6 @@
 
 <!DOCTYPE html>
+<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +12,7 @@
 </head>
 
 <body>
-     
+    
      <div data-role="page">
          <div  data-role="header" data-position="fixed" >
             <table border="0">
