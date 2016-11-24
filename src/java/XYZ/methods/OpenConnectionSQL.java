@@ -61,7 +61,7 @@ public class OpenConnectionSQL {
         return rs;
     }
     
-    public static void closeResultSet(ResultSet rs) {
+    public static void closeResultSet() {
         try {
             rs.close();
         } catch (SQLException e) {

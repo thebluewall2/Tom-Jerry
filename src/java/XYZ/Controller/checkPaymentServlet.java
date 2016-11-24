@@ -26,7 +26,6 @@ public class checkPaymentServlet extends HttpServlet {
         
         RequestDispatcher rd = request.getRequestDispatcher("view/userPayment.jsp");
         rd.forward(request, response);
-        
     }
 
 

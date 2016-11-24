@@ -1,26 +1,12 @@
 package XYZ.methods;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class SignUp {
 
-    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost/XYZ_Assoc?autoReconnect=true&useSSL=false";
-
-    //  Database credentials
-    static final String USER = "root";
-    static final String PASS = "";
-    
     public static String[] SignUpNewMember(String name, String address, String dateOfBirth) {
 
         String username = generateUsername(name);
@@ -29,9 +15,6 @@ public class SignUp {
         String userInfo[] = new String[2];
         userInfo[0] = username;
         userInfo[1] = password;
-
-        Connection conn = null;
-        Statement stmt = null;
 
         //get today's date and convert to sql date format for DOR
         Date date = new Date();
@@ -45,45 +28,22 @@ public class SignUp {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        
         java.sql.Date dob = new java.sql.Date(birthDate.getTime());
 
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            stmt = conn.createStatement();
+        //add member info into users table
+        String sql_query = "INSERT into users "
+                + "VALUES ('" + username + "', '" + password + "', 'APPLIED')";
+        OpenConnectionSQL.executeQuery(sql_query);
 
-            //add member info into users table
-            String sql_query = "INSERT into users "
-                    + "VALUES ('" + username + "', '" + password + "', 'APPLIED')";
-            stmt.executeUpdate(sql_query);
-            
-            //now add member info into members table
-            sql_query = "INSERT into members " +
-                    "VALUES ('" + username + "', '" + name + "', '" + address +
-                            "', '" + dob + "', '" + dor + "', 'APPLIED', 10)";
-            stmt.executeUpdate(sql_query);
+        //now add member info into members table
+        sql_query = "INSERT into members "
+                + "VALUES ('" + username + "', '" + name + "', '" + address
+                + "', '" + dob + "', '" + dor + "', 'APPLIED', 10)";
+        OpenConnectionSQL.executeQuery(sql_query);
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (stmt != null) {
-                    conn.close();
-                }
-            } catch (SQLException e) {
-                //do nothing
-            }
+        OpenConnectionSQL.closeConn();
 
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException e) {
-                //do nothing
-            }
-        }
         return userInfo;
     }
 
