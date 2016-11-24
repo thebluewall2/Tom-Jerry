@@ -23,7 +23,7 @@ public class AddClaim {
         
     }
     
-    public String AddClaimtoDB(int ClaimAmount,String ClaimReason)
+    public String AddClaimtoDB(String mem_id,int ClaimAmount,String ClaimReason)
     {
        
        OpenConnectionSQL openconn = new OpenConnectionSQL();
@@ -37,26 +37,18 @@ public class AddClaim {
 //           stmt = (Statement)openconn.conn.createStatement();                   
 //           String query = "INSERT INTO claims (id, mem_id, date, rationale, status, amount) values (5, 'happyman', '2015-12-11', 'i dont know', 'SUSPENDED', 1000)";            
            
-        String mem_id;
-        String rationale;
-        String status;
-        int amount;
+               
+        String status;        
 
      String query = "INSERT INTO claims (mem_id, date, rationale, status, amount) VALUES (?,now(),?,?,?)";
           
         PreparedStatement ps = null;
        ps = openconn.conn.prepareStatement(query);
-               
-       mem_id = "me3";   
-       status = "APPROVED";
-       rationale = ClaimReason;
-       amount = ClaimAmount;
-       
-                //ps.setInt(1, id);
+                                                                  
 		ps.setString(1, mem_id);		
-		ps.setString(2, rationale);
-                ps.setString(3, status);
-                ps.setInt(4, amount);
+		ps.setString(2, ClaimReason);
+                ps.setString(3, "SUBMITTED");
+                ps.setInt(4, ClaimAmount);
                 
 		// execute insert SQL stetement
 		ps.executeUpdate();
@@ -72,7 +64,7 @@ public class AddClaim {
        //close sql connection
        openconn.CloseConn();
        
-       return "success";//return to servlet
+       return "success";//return to servlet with success string to determind successfully added claim
     }
 }
 

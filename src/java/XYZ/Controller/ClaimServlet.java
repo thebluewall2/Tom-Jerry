@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -25,14 +26,20 @@ public class ClaimServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
+            
+            HttpSession session = request.getSession(); 
+            
+            
+            
             String ClaimAmount = request.getParameter("ClaimAmount");
             String ClaimReason = request.getParameter("ClaimReason");
-
+            String mem_id = (String) session.getAttribute("memberID");
+            
             out.println("Amount:" + ClaimAmount);
             out.println("Reason:" + ClaimReason);
 
             AddClaim claim = new AddClaim();
-            String ClaimSuccess = claim.AddClaimtoDB(Integer.parseInt(ClaimAmount), ClaimReason);
+            String ClaimSuccess = claim.AddClaimtoDB(mem_id,Integer.parseInt(ClaimAmount), ClaimReason);
             
             //open connection                
             

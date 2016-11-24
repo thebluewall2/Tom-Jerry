@@ -27,12 +27,20 @@
         
     </form>
     <br><br>
+    
+    <form action="/XYZDriverAssociation/view/ClaimHistory.jsp" style="width:400px" method="post">
+        
+        <input type="submit" value="View All Claim History">
+        
+    </form>
+    
+    <!--
         <h1><center>Claims History</center></h1>
         <br>
-        
-        
-<table>
-  <thead>
+
+
+    <table>
+    <thead>
     <tr>
       <th>Username</th>
       <th>Full name</th>
@@ -41,8 +49,8 @@
       <th>Claims Reason</th>
       <th>Claim Status</th>
     </tr>
-  </thead>
-  <tbody>
+    </thead>
+    <tbody>
     <tr>
       <td><strong>met-aydin</strong></td>
       <td>Mehmet aydin</td>
@@ -67,10 +75,10 @@
       <td>Why u ask</td>
       <td>Suspended</td> 
     </tr>
-  </tbody>
-</table>
-</div>        
-  
+    </tbody>
+    </table>
+    </div>        
+-->
     
     <jsp:include page="/view/footer.jsp" />
 </body>

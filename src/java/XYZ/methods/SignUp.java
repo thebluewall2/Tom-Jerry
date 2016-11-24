@@ -19,7 +19,7 @@ public class SignUp {
 
     //  Database credentials
     static final String USER = "root";
-    static final String PASS = "aaaaa1";
+    static final String PASS = "";
     
     public static String[] SignUpNewMember(String name, String address, String dateOfBirth) {
 

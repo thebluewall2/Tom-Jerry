@@ -31,7 +31,7 @@ public class OpenConnectionSQL {
         try {
             
 		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/xyz_assoc",user, password);
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/xyz_assoc",user, password);
                 
         if (conn != null) 
         {                
