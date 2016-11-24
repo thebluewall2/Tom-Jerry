@@ -8,9 +8,8 @@ import java.sql.Statement;
 
 public class OpenConnectionSQL {
 
-    //mysql username pw
     static String user = "root";
-    static String password = "";
+    static String password = "aaaaa1";
     static String db_url = "jdbc:mysql://localhost/XYZ_Assoc?autoReconnect=true&useSSL=false";
     static Connection conn = null;
     static Statement stmt = null;
@@ -30,11 +29,11 @@ public class OpenConnectionSQL {
         }
     }
 
-    public static void CloseConn() {
+    public static void closeConn() {
         try {
             conn.close();
         } catch (Exception e) {
-            
+            e.printStackTrace();
         }
     }
 
@@ -43,6 +42,7 @@ public class OpenConnectionSQL {
         try {
             OpenConnection();
             stmt.executeUpdate(sql_query);
+            closeConn();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -61,13 +61,12 @@ public class OpenConnectionSQL {
         return rs;
     }
     
-    public static void closeResultSet() {
+    public static void closeResultSet(ResultSet rs) {
         try {
             rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
     }
-
+        
 }
