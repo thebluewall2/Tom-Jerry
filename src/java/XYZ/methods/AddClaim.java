@@ -62,7 +62,7 @@ public class AddClaim {
         
         
        //close sql connection
-       openconn.CloseConn();
+       openconn.closeConn();
        
        return "success";//return to servlet with success string to determind successfully added claim
     }
