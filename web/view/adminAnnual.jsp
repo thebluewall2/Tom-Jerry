@@ -1,37 +1,37 @@
 
-<!DOCTYPE html>
-<html>
+
+<html>    
 <head>
+    <link type="text/css" rel="stylesheet" href="/XYZDriverAssociation/view/pageDesign.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-    <link type="text/css" rel="stylesheet" href="pageDesign.css"/>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
 </head>
 
-<body>        
-    <jsp:include page="headerAdmin.jsp" />
-        
-    <h1> Annual Turnover </h1>
-    <div data-role="content" class="table1">
-    <table width="400px">
-        <thead>
-            <tr>
-                <th>Total Income </th>
-                <th> £ 100000000.00</th>
-            </tr>
-        </thead>
-        <tbody align="center">
-            <tr>
-                <td>Total Payouts </td>
-                <td> £ 50000000.00 </td>
-            </tr>
-        </tbody>
-    </table>
-    </div>
-    <jsp:include page="footer.jsp" />
+    <body>
+        <jsp:include page="headerAdmin.jsp"/>   
 
-</body>
+        <h1> Annual Turnover </h1>
+        <div data-role="content" class="ui-content" class="table1">
+            <table width="400px">
+                <thead>
+                    <tr>
+                        <th>Total Income </th>
+                        <th> ${requestScope.totalIncome} </th>
+                    </tr>
+                </thead>
+                <tbody align="center">
+                    <tr>
+                        <td>Total Payouts </td>
+                        <td> ${requestScope.totalPayouts} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+                    
+        <jsp:include page="footer.jsp" />
+
+    </body>
 </html>
 

@@ -1,6 +1,6 @@
 package XYZ.Controller;
 
-import XYZ.methods.userPayment;
+import XYZ.methods.UserPayment;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -23,7 +23,7 @@ public class paymentServlet extends HttpServlet {
         String paymentMethod = request.getParameter("paymentMethod");
         float amount = Float.parseFloat(request.getParameter("amount"));
 
-        userPayment.userPayment(memberID, paymentMethod, amount);
+        UserPayment.userPayment(memberID, paymentMethod, amount);
         response.sendRedirect("view/userHome.jsp");
     }
 
