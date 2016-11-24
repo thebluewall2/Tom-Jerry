@@ -30,7 +30,6 @@ public class SignUp {
         userInfo[0] = username;
         userInfo[1] = password;
 
-
         Connection conn = null;
         Statement stmt = null;
 

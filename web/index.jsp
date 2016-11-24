@@ -53,6 +53,7 @@
 
     
     <br><br>
+    
     <center><a href="view/signUp.jsp">Sign Up</a></center> 
     
     <jsp:include page="view/footer.jsp" />
