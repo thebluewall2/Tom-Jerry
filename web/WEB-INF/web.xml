@@ -37,6 +37,10 @@
         <jsp-file>/view/ClaimHistory.jsp</jsp-file>
     </servlet>
     <servlet>
+        <servlet-name>AnnualTurnoverServlet</servlet-name>
+        <servlet-class>XYZ.Controller.AnnualTurnoverServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>UserViewClaim</servlet-name>
         <servlet-class>XYZ.Controller.UserViewClaimServlet</servlet-class>
     </servlet>
@@ -83,6 +87,10 @@
     <servlet-mapping>
         <servlet-name>ClaimHistory</servlet-name>
         <url-pattern>/ClaimHistory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AnnualTurnoverServlet</servlet-name>
+        <url-pattern>/AnnualTurnoverServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UserViewClaim</servlet-name>
