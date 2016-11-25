@@ -5,7 +5,7 @@
  */
 package XYZ.Controller;
 
-import XYZ.methods.AddClaim;
+import XYZ.methods.ViewClaim;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,44 +18,34 @@ import javax.servlet.http.HttpSession;
  *
  * @author yusuk
  */
-public class ClaimServlet extends HttpServlet {
+public class UserViewClaimServlet extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
         PrintWriter out = response.getWriter();
+        
         try {
+          
+             HttpSession session = request.getSession(); 
+             String mem_id = (String) session.getAttribute("memberID");
+             
+             ViewClaim v_claim = new ViewClaim();
+             
+             v_claim.ListClaim(mem_id);
+             
+             request.getRequestDispatcher("/view/ClaimHistory.jsp").forward(request, response);
             
-            HttpSession session = request.getSession(); 
-                                   
-            String ClaimAmount = request.getParameter("ClaimAmount");
-            String ClaimReason = request.getParameter("ClaimReason");
-            String mem_id = (String) session.getAttribute("memberID");
-            
-//            out.println("Amount:" + ClaimAmount);
-//            out.println("Reason:" + ClaimReason);
-
-            AddClaim claim = new AddClaim();
-            String ClaimSuccess = claim.AddClaimtoDB(mem_id,Integer.parseInt(ClaimAmount), ClaimReason);
-            
-            //open connection                
-            
-                
-                
-            if (ClaimSuccess.equals("success")) {                
-                String claim_message = ("Claim success, Amount is : " + ClaimAmount + " and the Reason is : " + ClaimReason);
-                request.setAttribute("claim_message", claim_message); 
-                request.setAttribute("popupbox1", true);
-                request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
-
-            } else {                
-                String claim_message = ("failure");
-                request.setAttribute("claim_message", claim_message);
-                request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
-                //can go back to home or continue adding claim
-                //msg pop failure
-            }
-
         } finally {
             out.close();
         }

@@ -5,9 +5,7 @@
  */
 package XYZ.methods;
 
-import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -29,37 +27,29 @@ public class AddClaim {
        OpenConnectionSQL openconn = new OpenConnectionSQL();
        
         openconn.OpenConnection();
-      // create a Statement from the connection
-        
         
         // insert the data
         try{
-//           stmt = (Statement)openconn.conn.createStatement();                   
-//           String query = "INSERT INTO claims (id, mem_id, date, rationale, status, amount) values (5, 'happyman', '2015-12-11', 'i dont know', 'SUSPENDED', 1000)";            
-           
-               
-        String status;        
 
-     String query = "INSERT INTO claims (mem_id, date, rationale, status, amount) VALUES (?,now(),?,?,?)";
+        String query = "INSERT INTO claims (mem_id, date, rationale, amount, status) VALUES (?,now(),?,?,?)";
           
         PreparedStatement ps = null;
-       ps = openconn.conn.prepareStatement(query);
+        ps = openconn.conn.prepareStatement(query);
                                                                   
 		ps.setString(1, mem_id);		
 		ps.setString(2, ClaimReason);
-                ps.setString(3, "SUBMITTED");
-                ps.setInt(4, ClaimAmount);
+                ps.setInt(3, ClaimAmount);
+                ps.setString(4, "SUBMITTED");
+                
                 
 		// execute insert SQL stetement
 		ps.executeUpdate();
-            
+                
+
         }catch(Exception e)
         {
             System.out.println(e);
         }
-        
-        
-        
         
        //close sql connection
        openconn.CloseConn();
