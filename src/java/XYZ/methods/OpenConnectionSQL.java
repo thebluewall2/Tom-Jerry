@@ -16,8 +16,8 @@ public class OpenConnectionSQL {
     
     //mysql username pw
     static String user = "root";
-    static String password = "";
-    Connection conn = null;
+    static String password = "password";
+    static Connection conn = null;
 
     
     public OpenConnectionSQL()
@@ -48,6 +48,32 @@ public class OpenConnectionSQL {
             }
         
                    
+    }
+    
+        public static Connection OpenConnectionReturnConn() //String user, String password
+    {        
+        
+        try {
+            
+		Class.forName("com.mysql.jdbc.Driver");
+		conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/xyz_assoc",user, password);
+                
+        if (conn != null) 
+        {                
+                return conn;
+        }
+        else 
+        {
+               System.out.println("Connection failure");
+               return null;
+        }
+        
+            }catch(Exception e)
+            {
+                
+            }
+        
+          return null;         
     }
  
   public void CloseConn()

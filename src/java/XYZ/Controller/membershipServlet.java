@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import XYZ.methods.OpenConnectionSQL;
 
 /**
  *
@@ -37,20 +38,18 @@ public class membershipServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
       
-        Connection conn = null;
+       Connection conn = null;
         Statement stmt = null;
         String membershipStatus = "";
-        String expiryDate =  "";
-        String DB_URL = "jdbc:mysql://localhost:3306/XYZ_Assoc?autoReconnect=true&useSSL=false";
-        String USER = "root";
-        String PASS = "password";
+         
+       
+       conn =  OpenConnectionSQL.OpenConnectionReturnConn();
         
         HttpSession session = request.getSession();
         String username = (String)session.getAttribute("memberID");
         
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+       
             stmt = conn.createStatement();
             String sql_query = "SELECT status, expiry from users where id =" + "'" + username + "'";
             ResultSet rs = stmt.executeQuery(sql_query);  

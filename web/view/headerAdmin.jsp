@@ -11,7 +11,7 @@
             <td>
                 <ul>
                     <li><a href="adminHome.jsp">Home</a></li>
-                    <li><a href="adminMembers.jsp">Member List</a></li>
+                    <li><a href="/XYZ.Controller/approveServlet">Member List</a></li>
                     <li><a href="adminAnnual.jsp">Annual Turnover</a></li>
                     <li><a href="/XYZDriverAssociation/logoutServlet.do">LogOut</a></li>
                 </ul>
