@@ -13,6 +13,8 @@
         <jsp:include page="headerUser.jsp" />
 
         <h1> Membership </h1>
+        <h2> Membership Status</h2>
+        <h3>${membershipStatus}</h3>
         <jsp:include page="footer.jsp" />
 
     </body>
