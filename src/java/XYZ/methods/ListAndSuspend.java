@@ -24,7 +24,7 @@ public class ListAndSuspend {
     public static String listAllUsers() throws SQLException {
         conn =  OpenConnectionSQL.OpenConnectionReturnConn();
         String sql_query = "SELECT * from users";
-        ResultSet rs = stmt.executeQuery(sql_query);
+        rs = stmt.executeQuery(sql_query);
         
         return makeTable(rsToList());
     }
