@@ -12,6 +12,13 @@
     <jsp:include page="headerAdmin.jsp" />
         
     <h1> Welcome back, Admin  </h1>
+    
+    
+        <c:if test="${requestScope.popupbox2 eq true}">
+            <jsp:include page="PopUpBox.jsp" />
+        </c:if>
+
+
     <jsp:include page="footer.jsp" />
    
 </body>

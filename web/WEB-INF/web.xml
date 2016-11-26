@@ -41,8 +41,20 @@
         <servlet-class>XYZ.Controller.AnnualTurnoverServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>UserViewClaim</servlet-name>
+        <servlet-name>UserViewClaimServlet</servlet-name>
         <servlet-class>XYZ.Controller.UserViewClaimServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminViewClaimServlet</servlet-name>
+        <servlet-class>XYZ.Controller.AdminViewClaimServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ApprovalServlet</servlet-name>
+        <servlet-class>XYZ.Controller.ApprovalServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminApprovalServlet</servlet-name>
+        <servlet-class>XYZ.Controller.AdminApprovalServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>adminServlet</servlet-name>
@@ -93,8 +105,20 @@
         <url-pattern>/AnnualTurnoverServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>UserViewClaim</servlet-name>
-        <url-pattern>/UserViewClaim</url-pattern>
+        <servlet-name>UserViewClaimServlet</servlet-name>
+        <url-pattern>/UserViewClaimServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminViewClaimServlet</servlet-name>
+        <url-pattern>/AdminViewClaimServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ApprovalServlet</servlet-name>
+        <url-pattern>/ApprovalServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminApprovalServlet</servlet-name>
+        <url-pattern>/AdminApprovalServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

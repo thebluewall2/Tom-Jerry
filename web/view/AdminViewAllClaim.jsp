@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
@@ -13,16 +12,23 @@
         <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
         <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
         <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-        <title>Claim History</title>
+        <title>All Claim</title>
     </head>
     <body>
 
-        <jsp:include page="headerUser.jsp" />        
+        <jsp:include page="headerAdmin.jsp" />        
 
         <div align="center">
 
-            <h1> Claim History</h1>
+            <h1> All Claim </h1>
             
+              <form action="/XYZDriverAssociation/AdminApprovalServlet" style="width:400px" method="post">
+
+                <input type="submit" value="Claim Approvals">
+
+            </form>
+            
+            <br>
             
             <table border="1">
                 <tr>
@@ -31,7 +37,7 @@
                     <th>Date of Claim</th>
                     <th>Reason of Claim</th>
                     <th>Status</th>
-                    <th>Amount</th>
+                    <th>Amount</th>                    
                 </tr>    
                 
                 <c:set var="count" value="0"/>    
@@ -41,9 +47,9 @@
                     <td><c:out value="${count=count+1}"/></td> 
                     <td><c:out value="${row.mem_id}"/></td>
                     <td><c:out value="${row.date}"/></td>
-                    <td><c:out value="${row.rationale}"/></td>                   
-                    <td><c:out value="${row.amount}"/></td>
-                    <td><c:out value="${row.status}"/></td>
+                    <td><c:out value="${row.rationale}"/></td>
+                    <td><c:out value="${row.amount}"/></td>  
+                    <td><c:out value="${row.status}"/></td>                                      
                 </tr>
                 </c:forEach>
                

@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class OpenConnectionSQL {
 
     static String user = "root";
-    static String password = "aaaaa1";
+    static String password = "";
     static String db_url = "jdbc:mysql://localhost/XYZ_Assoc?autoReconnect=true&useSSL=false";
     static Connection conn = null;
     static Statement stmt = null;

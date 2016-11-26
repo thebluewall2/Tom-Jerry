@@ -5,41 +5,96 @@
  */
 package XYZ.methods;
 
-import com.mysql.jdbc.Statement;
-import java.sql.PreparedStatement;
+import java.sql.Date;
 import java.sql.ResultSet;
 
 /**
  *
  * @author yusuk
  */
-public class ViewClaim {
-     
-    Statement stmt = null;
-    ResultSet rs = null;
-    
-    public ViewClaim(){
+public class ViewClaim {            
+        private int id;
+        private String mem_id;
+        private Date date;
+        private String rationale;
+        private int amount;
+        private String status;
+
+    public ResultSet ListClaim(String member_id,String target){
         
-    }
-    
-    public String ListClaim(String memb_id){
-        
-        OpenConnectionSQL openconn = new OpenConnectionSQL();
        
-        openconn.OpenConnection();
-               
-        try{            
-            String query = "SELECT * FROM claims WHERE mem_id ='"+ memb_id +"' ";
-                
-    
-        }catch(Exception e)
+        String selectedquery = "";
+        
+        String queryadmin = "SELECT * FROM claims;";        
+        String query = "SELECT * FROM claims WHERE mem_id ='"+member_id+"';";  
+        String querysubmitted ="SELECT * FROM claims WHERE status ='SUBMITTED'";
+        
+        if(target.equals("ADMIN"))
         {
-            System.out.println(e);
+             selectedquery = queryadmin;
         }
-        
-        String createtable = "";//output table
-        
-              
-        return createtable;
+        else if (target.equals("APPLIED") || (target.equals("APPROVED"))) 
+        {
+             selectedquery = query;
+        }
+        else if (target.equals("SUBMITTED"))
+        {
+            selectedquery = querysubmitted;
+        }
+       
+                
+        ResultSet rs = OpenConnectionSQL.getData(selectedquery);                          
+         
+        return rs;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getMem_id() {
+        return mem_id;
+    }
+
+    public void setMem_id(String mem_id) {
+        this.mem_id = mem_id;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getRationale() {
+        return rationale;
+    }
+
+    public void setRationale(String rationale) {
+        this.rationale = rationale;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+    
+    
 }

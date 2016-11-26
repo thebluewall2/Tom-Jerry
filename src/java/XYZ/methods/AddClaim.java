@@ -17,9 +17,6 @@ public class AddClaim {
     
     Statement stmt = null;
     ResultSet rs = null;
-    public AddClaim(){
-        
-    }
     
     public String AddClaimtoDB(String mem_id,int ClaimAmount,String ClaimReason)
     {
@@ -30,16 +27,16 @@ public class AddClaim {
         
         // insert the data
         try{
-
-        String query = "INSERT INTO claims (mem_id, date, rationale, amount, status) VALUES (?,now(),?,?,?)";
+         
+        String query = "INSERT INTO claims (mem_id, date, rationale, status, amount) VALUES (?,now(),?,?,?)";
           
         PreparedStatement ps = null;
         ps = openconn.conn.prepareStatement(query);
                                                                   
 		ps.setString(1, mem_id);		
-		ps.setString(2, ClaimReason);
-                ps.setInt(3, ClaimAmount);
-                ps.setString(4, "SUBMITTED");
+		ps.setString(2, ClaimReason);                
+                ps.setString(3, "SUBMITTED");
+                ps.setInt(4, ClaimAmount);
                 
                 
 		// execute insert SQL stetement
@@ -58,26 +55,3 @@ public class AddClaim {
     }
 }
 
-
-// METHOD how to get data from mysql
-//     try{
-//                    stmt = conn.createStatement();                    
-//                    String sql;
-//                    sql = "SELECT * FROM members;";               
-//                    ResultSet rs = stmt.executeQuery(sql);
-//                    
-//                    while(rs.next())
-//                    {
-//                        System.out.println(rs.getString("id"));
-//                        System.out.println(rs.getString("name"));
-//                        System.out.println(rs.getString("address"));
-//                        System.out.println(rs.getString("dob"));
-//                        System.out.println(rs.getString("dor"));
-//                        System.out.println(rs.getString("status"));
-//                        System.out.println(rs.getString("balance"));
-//                        
-//                    }
-//                }catch(Exception e)
-//                {
-//                    System.out.println(e);
-//                }

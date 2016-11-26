@@ -27,6 +27,8 @@ public class loginServlet extends HttpServlet {
         String memberStatus = Login.verifyLogin(username, password);
         
         HttpSession session = request.getSession();
+        
+        session.setAttribute("memberStatus", memberStatus);
         session.setAttribute("memberID", username);
         
         if (memberStatus.equals("ADMIN")) {

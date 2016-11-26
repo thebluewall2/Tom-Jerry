@@ -5,11 +5,13 @@
  */
 package XYZ.Controller;
 
-import XYZ.methods.AddClaim;
-import XYZ.methods.CheckEligibility;
+import XYZ.methods.ViewClaim;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -22,58 +24,57 @@ import javax.servlet.http.HttpSession;
  *
  * @author yusuk
  */
-public class ClaimServlet extends HttpServlet {
+public class AdminApprovalServlet extends HttpServlet {
 
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        
         try {
-            
-            HttpSession session = request.getSession(); 
-                                   
-            String ClaimAmount = request.getParameter("ClaimAmount");
-            String ClaimReason = request.getParameter("ClaimReason");
-            String mem_id = (String) session.getAttribute("memberID");
-            
-//            String checkingDOR = CheckEligibility.check(mem_id);
-//            
-//            if(checkingDOR.equals("Eligible"))
-//            {
-//                
-//            }
-//            else if(checkingDOR.equals("NotEligible"))
-//            {
-//                String message = ("Members must be registered for 6 months to make a claim");
-//                request.setAttribute("message", message); 
-//                request.setAttribute("popupbox1", true);
-//                request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
-//            }
-//            else{
-//                System.out.println("error");
-//            }
-//            //check eligibility function 6months and 2 claim per year
-            
-            AddClaim claim = new AddClaim();
-            String ClaimSuccess = claim.AddClaimtoDB(mem_id,Integer.parseInt(ClaimAmount), ClaimReason);
-            
-            //open connection                
-                            
-                
-            if (ClaimSuccess.equals("success")) {                
-                String message = ("Claim success, Amount is : " + ClaimAmount + " and the Reason is : " + ClaimReason);
-                request.setAttribute("message", message); 
-                request.setAttribute("popupbox1", true);
-                request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
+             HttpSession session = request.getSession(); 
+             String mem_id = (String) session.getAttribute("memberID");
+             String viewsubmitted = "SUBMITTED";
+             ViewClaim v_claim = new ViewClaim();
+                          
+             ResultSet resultset = v_claim.ListClaim(mem_id,viewsubmitted);
+                  
+             List<ViewClaim> tablelist = new ArrayList<ViewClaim>();
+             //error is here coldnt load while or something wrong
+             int number = 0;
+                                 
 
-            } else {                
-                String message = ("claim failure");
-                request.setAttribute("message", message);
-                request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
-                //can go back to home or continue adding claim
-                //msg pop failure
-            }
+                    while(resultset.next())
+                   {
+                       ViewClaim listClaim = new ViewClaim();      
+                       
+                       listClaim.setId(resultset.getInt("id"));
+                       listClaim.setMem_id(resultset.getString("mem_id"));                       
+                       listClaim.setDate(resultset.getDate("date"));
+                       listClaim.setRationale(resultset.getString("rationale"));
+                       listClaim.setStatus(resultset.getString("status"));
+                       listClaim.setAmount(resultset.getInt("amount"));                       
+                       
+                       tablelist.add(listClaim);
+                       number++; // keep track of numbers of item
+                   }
+                             
+//        }
+            
+             request.setAttribute("number",number);
+             request.setAttribute("tablelist",tablelist);             
 
+             request.getRequestDispatcher("/view/ClaimApprovalPage.jsp").forward(request, response); // put to userhome to test whether list can be added
+  
         } finally {
             out.close();
         }
@@ -94,7 +95,7 @@ public class ClaimServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(ClaimServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdminApprovalServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -112,7 +113,7 @@ public class ClaimServlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(ClaimServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdminApprovalServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

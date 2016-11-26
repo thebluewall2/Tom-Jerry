@@ -27,7 +27,7 @@
             </form>
             <br><br>
 
-            <form action="/XYZDriverAssociation/view/ClaimHistory.jsp" style="width:400px" method="post">
+            <form action="/XYZDriverAssociation/UserViewClaimServlet" style="width:400px" method="post">
 
                 <input type="submit" value="View All Claim History">
 
