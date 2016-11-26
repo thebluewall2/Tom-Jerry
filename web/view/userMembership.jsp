@@ -15,11 +15,7 @@
     <h1> Membership </h1>
     
     <h2> Membership Status </h2>
- 
     <h3>${membershipStatus}</h3>
-    
-    <h2> Membership Expiry Date </h2>
-    <%=(String)(request.getAttribute("membershipStatus"))%>
 
    
     

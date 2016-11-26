@@ -45,16 +45,18 @@ public class membershipServlet extends HttpServlet {
         String USER = "root";
         String PASS = "password";
         
+        HttpSession session = request.getSession();
+        String username = (String)session.getAttribute("memberID");
+        
         try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            String username = "adrianchin";//need to get username from session
             stmt = conn.createStatement();
-            String sql_query = "SELECT status, expiry from users where id = 'adrianchin'";
+            String sql_query = "SELECT status, expiry from users where id =" + "'" + username + "'";
             ResultSet rs = stmt.executeQuery(sql_query);  
             
-             membershipStatus = rs.getString("status");
-             expiryDate = rs.getString("expiry");
+            rs.next(); 
+            membershipStatus = rs.getString("status");                      
             
             
         } catch (SQLException e) {
@@ -62,8 +64,7 @@ public class membershipServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-            request.setAttribute("membershipStatus", membershipStatus);
-            request.setAttribute("expiryDate", expiryDate);
+            request.setAttribute("membershipStatus", membershipStatus);            
             request.getRequestDispatcher("/view/userMembership.jsp").forward(request, response);
         
         
