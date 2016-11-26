@@ -1,4 +1,5 @@
 
+<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,19 +9,27 @@
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
-<body>  
-    <jsp:include page="headerAdmin.jsp" />
-        
-    <h1> Welcome back, Admin  </h1>
-    
-    
+
+    <body>    
+
+        <jsp:include page="headerAdmin.jsp" />
+        <br>
+        <br>
+        <br>   
+
+        <h1><center>Welcome Back, Admin</center></h1>  
+
+
         <c:if test="${requestScope.popupbox2 eq true}">
             <jsp:include page="PopUpBox.jsp" />
         </c:if>
 
 
-    <jsp:include page="footer.jsp" />
-   
-</body>
+
+        <jsp:include page="footer.jsp" />
+
+    </body>
+
+
 </html>
 
