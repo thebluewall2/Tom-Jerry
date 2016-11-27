@@ -68,6 +68,10 @@
         <servlet-name>ListAllUsersServlet</servlet-name>
         <servlet-class>XYZ.Controller.ListAllUsersServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SuspendServlet</servlet-name>
+        <servlet-class>XYZ.Controller.SuspendServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>adminServlet</servlet-name>
         <url-pattern>/adminServlet</url-pattern>
@@ -135,6 +139,10 @@
     <servlet-mapping>
         <servlet-name>ListAllUsersServlet</servlet-name>
         <url-pattern>/ListAllUsersServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SuspendServlet</servlet-name>
+        <url-pattern>/SuspendServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

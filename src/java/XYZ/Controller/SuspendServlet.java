@@ -5,13 +5,10 @@
  */
 package XYZ.Controller;
 
-import XYZ.methods.ListAllMembers;
+import XYZ.methods.Approval;
+import XYZ.methods.Suspend;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,10 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Adrian
  */
-public class ListAllUsersServlet extends HttpServlet {
-ArrayList<ListAllMembers> tablelist;
-int number;
-    
+public class SuspendServlet extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -36,46 +31,14 @@ int number;
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+       String memberID = request.getParameter("id");
+       Suspend.suspendUser(memberID);
         
-//try {
-        ListAllMembers listAllMembers = new ListAllMembers();
+       String message = ("User Suspended");
+       request.setAttribute("message", message); 
+       request.setAttribute("popupbox2", true);
+       request.getRequestDispatcher("/view/adminHome.jsp").forward(request, response);
         
-         ResultSet resultset = listAllMembers.ListMembers();
-         
-         tablelist = new ArrayList<ListAllMembers>();
-             //error is here coldnt load while or something wrong
-             number = 0;
-                                                            
-//                    while(resultset.next())
-//                   {
-//                       ListAllMembers listOfMembers = new ListAllMembers();      
-//                       
-//                       listOfMembers.setId(resultset.getString("id"));
-//                       listOfMembers.setName(resultset.getString("name"));                       
-//                       listOfMembers.setAddress(resultset.getString("address"));
-//                       listOfMembers.setDob(resultset.getDate("dob"));                       
-//                       listOfMembers.setDor(resultset.getDate("dor"));
-//                       listOfMembers.setStatus(resultset.getString("status"));
-//                       listOfMembers.setBalance(resultset.getFloat("balance"));
-//                       
-//                       tablelist.add(listOfMembers);
-//                       number++; // keep track of numbers of item
-//                   }
-                    
-//            }catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-     
-     ListAllMembers listOfMembers = new ListAllMembers();
-         listOfMembers.setId("kotek");
-//         tablelist.add(listOfMembers);  
-      
-         
-            request.setAttribute("number", number);
-             request.setAttribute("tablelist",listOfMembers);             
-
-             request.getRequestDispatcher("/view/adminMembers.jsp").forward(request, response);
-                
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
