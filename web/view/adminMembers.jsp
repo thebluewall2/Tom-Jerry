@@ -12,6 +12,7 @@
     <jsp:include page="headerAdmin.jsp" />
         
     <h1> Members </h1>
+    ${listOfUsers}
     <jsp:include page="footer.jsp" />
     
     
