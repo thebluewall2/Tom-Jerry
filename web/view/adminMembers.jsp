@@ -46,7 +46,7 @@
                     <td><c:out value="${row.balance}"/></td>
                     <td> 
                         <c:if test="${row.status eq 'SUSPENDED'}">
-                            <button><a href="/XYZDriverAssociation/ReapproveUserServlet?id=${row.id}">Reapprove</a></button> 
+                            <button><a href="/XYZDriverAssociation/ReapproveUserServlet?id=${row.id}">Resume</a></button> 
                              </c:if>
                             <c:if test="${row.status eq 'APPROVED'}">
                                 <button><a href="/XYZDriverAssociation/SuspendServlet?id=${row.id}">Suspend</a></button>  
