@@ -18,31 +18,38 @@ import java.util.Calendar;
  */
 public class CheckEligibility {
     
-    public static String check(String mem_id) throws SQLException{            
+    public static String checkdor(String member_id) throws SQLException{            
+                   
+              String queryforDOR = "SELECT * FROM members WHERE id ='"+member_id+"';";  
+              
+        ResultSet resultset = OpenConnectionSQL.getData(queryforDOR); 
         
-        String query ="SELECT dor FROM members WHERE id='"+mem_id+"'";
-        ResultSet rs = OpenConnectionSQL.getData(query);        
+        Date DOR = null;         
         
+        if(resultset.next())
+        {
+            DOR = resultset.getDate("dor");  //get date of register        
+        }                        
         
-        Date DOR = rs.getDate("dor");                          
-                  
-        Calendar sixmonthsago = Calendar.getInstance();  //Get current date/month i.e 27 Feb, 2012                        
-        sixmonthsago.add(Calendar.MONTH, -6);   //Go to date, 6 months ago 27 July, 2011
-        sixmonthsago.set(Calendar.DAY_OF_MONTH, 1); //set date, to make it 1 July, 2011
+        Calendar today = Calendar.getInstance();  //Get current date/month i.e 27 Feb, 2012                        
+        today.add(Calendar.MONTH, -6);   //Go to date, 6 months ago 27 July, 2011
+        today.set(Calendar.DAY_OF_MONTH, 1); //set date, to make it 1 July, 2011
         
-        Date DateSixMonthsAgo =  (Date) sixmonthsago.getTime();
+        Date sixmonthsago =  (Date) today.getTime();
        
-        if(DOR.before(DateSixMonthsAgo) || (DOR.equals(DateSixMonthsAgo)))//can claim
+       
+        if(DOR.before(sixmonthsago) || (DOR.equals(sixmonthsago)))//can claim
         {
             return "Eligible";
         } 
-        else if (DOR.after(DateSixMonthsAgo))//cannot claim
+        else if (DOR.after(sixmonthsago))//cannot claim
         {
             return "NotEligible";
         }
-        else
-        return "Error";
-    }
+       
+        return "";
+    
+}
 }
 
 

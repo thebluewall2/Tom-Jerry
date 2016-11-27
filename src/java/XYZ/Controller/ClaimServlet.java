@@ -31,34 +31,48 @@ public class ClaimServlet extends HttpServlet {
         try {
             
             HttpSession session = request.getSession(); 
-                                   
+                
+             
             String ClaimAmount = request.getParameter("ClaimAmount");
+            if(ClaimAmount.isEmpty())
+            {
+                ClaimAmount = "-999";            //reassign -999 to claim amount if field is empty
+            }
+                                    
             String ClaimReason = request.getParameter("ClaimReason");
+             if(ClaimAmount.isEmpty())
+            {
+                ClaimReason = "";            //reassign -999 to claim amount if field is empty
+            }
+            
+            
             String mem_id = (String) session.getAttribute("memberID");
             
-//            String checkingDOR = CheckEligibility.check(mem_id);
-//            
-//            if(checkingDOR.equals("Eligible"))
-//            {
-//                
-//            }
-//            else if(checkingDOR.equals("NotEligible"))
-//            {
-//                String message = ("Members must be registered for 6 months to make a claim");
-//                request.setAttribute("message", message); 
-//                request.setAttribute("popupbox1", true);
-//                request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
-//            }
-//            else{
-//                System.out.println("error");
-//            }
-//            //check eligibility function 6months and 2 claim per year
+//            CHECK MONTHS
+            String checkingDOR = CheckEligibility.checkdor(mem_id);
             
+            if(checkingDOR.equals("Eligible"))
+            {
+                //do nothing and proceed
+            }
+            else if(checkingDOR.equals("NotEligible"))
+            {
+                String message = ("Members must be registered for 6 months to make a claim");
+                request.setAttribute("message", message); 
+                request.setAttribute("popupbox1", true);
+                request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
+            }
+            else{
+                String message = ("Something is wrong with the system please retry the operation.");
+                request.setAttribute("message", message); 
+                request.setAttribute("popupbox1", true);
+                request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
+            }
+            //check eligibility function 6months and 2 claim per year
+
+  
             AddClaim claim = new AddClaim();
-            String ClaimSuccess = claim.AddClaimtoDB(mem_id,Integer.parseInt(ClaimAmount), ClaimReason);
-            
-            //open connection                
-                            
+            String ClaimSuccess = claim.AddClaimtoDB(mem_id,Integer.parseInt(ClaimAmount), ClaimReason);//open connection and pass parameters from jsp           
                 
             if (ClaimSuccess.equals("success")) {                
                 String message = ("Claim success, Amount is : " + ClaimAmount + ".00 and the Reason is : " + ClaimReason);
@@ -66,9 +80,10 @@ public class ClaimServlet extends HttpServlet {
                 request.setAttribute("popupbox1", true);
                 request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
 
-            } else {                
-                String message = ("claim failure");
+            } else if (ClaimSuccess.equals("failure")) {                                              
+                String message = ("Claim failure, some of the fields are not filled");
                 request.setAttribute("message", message);
+                request.setAttribute("popupbox1", true);
                 request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
                 //can go back to home or continue adding claim
                 //msg pop failure
