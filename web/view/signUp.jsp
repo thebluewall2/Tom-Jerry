@@ -13,13 +13,13 @@
 
         <form action="/XYZDriverAssociation/signUpServlet.do" method="POST" style="width:400px;font-family: Helvetica-light"> 
             Name : <br>
-            <input type="text" name="name">
+            <input type="text" name="name" placeholder="eg: Eva Stone... (must be at least 2 words)">
 
             Address : <br>
             <textarea style="resize:none" name="address" rows="10" cols="70"></textarea>
 
             Date of birth : <br>
-            <input type="text" name="dob">
+            <input type="text" name="dob" placeholder="DD/MM/YYYY">
             
             <br><br>
             <input type="SUBMIT" value="Submit">
