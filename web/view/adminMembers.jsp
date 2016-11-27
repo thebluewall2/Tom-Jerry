@@ -48,9 +48,12 @@
                         <c:if test="${row.status eq 'SUSPENDED'}">
                             <button><a href="/XYZDriverAssociation/ReapproveUserServlet?id=${row.id}">Reapprove</a></button> 
                              </c:if>
-                            <c:if test="${row.status eq 'APPLIED'|| row.status eq 'APPROVED'}">
+                            <c:if test="${row.status eq 'APPROVED'}">
                                 <button><a href="/XYZDriverAssociation/SuspendServlet?id=${row.id}">Suspend</a></button>  
                             </c:if>
+                                <c:if test="${row.status eq 'APPLIED'}">
+                            <button><a href="/XYZDriverAssociation/ReapproveUserServlet?id=${row.id}">Approve</a></button> 
+                             </c:if>
                                 
                     </td>     
                 </tr>
