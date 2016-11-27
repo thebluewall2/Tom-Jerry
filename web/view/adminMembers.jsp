@@ -1,5 +1,8 @@
 
-<!DOCTYPE html>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%><!DOCTYPE html>
 <html>
 <head>
     <link type="text/css" rel="stylesheet" href="/XYZDriverAssociation/view/pageDesign.css"/>
@@ -32,14 +35,14 @@
                     <th>Action</th>                    
                 </tr>    
                 </thead>
-            
-                
-                <!--<c:forEach items="${tablelist}" var="row">--> 
+                           
+
+                <c:forEach items="${tablelist}" var="row"> 
                     
                 <tr>                                                                                                        
                     
-                    <td><c:out value="${tablelist}"/></td>
-<!--                    <td><c:out value="${row.name}"/></td>
+                    <td><c:out value="${row.id}"/></td>
+                    <td><c:out value="${row.name}"/></td>
                     <td><c:out value="${row.address}"/></td>                    
                     <td><c:out value="${row.dob}"/></td>
                     <td><c:out value="${row.dor}"/></td>
@@ -47,14 +50,15 @@
                     <td><c:out value="${row.balance}"/></td>
                     <td> 
                             <button><a href="/XYZDriverAssociation/SuspendServlet?id=${row.id}">Suspend</a></button>
-                    </td>     -->
+                    </td>     
                 </tr>
-                <!--</c:forEach>-->
+                </c:forEach>
                
               
             </table>
                     
                     <h1>There is total of ${number} members.</h1>
+                    
         
     <jsp:include page="footer.jsp" />
     

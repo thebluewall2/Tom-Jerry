@@ -22,9 +22,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author Adrian
  */
 public class ListAllUsersServlet extends HttpServlet {
-ArrayList<ListAllMembers> tablelist;
+
 int number;
-    
+String test;    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -37,42 +37,41 @@ int number;
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-//try {
+try {
         ListAllMembers listAllMembers = new ListAllMembers();
         
          ResultSet resultset = listAllMembers.ListMembers();
-         
+         List<ListAllMembers> tablelist;
          tablelist = new ArrayList<ListAllMembers>();
              //error is here coldnt load while or something wrong
              number = 0;
                                                             
-//                    while(resultset.next())
-//                   {
-//                       ListAllMembers listOfMembers = new ListAllMembers();      
-//                       
-//                       listOfMembers.setId(resultset.getString("id"));
-//                       listOfMembers.setName(resultset.getString("name"));                       
-//                       listOfMembers.setAddress(resultset.getString("address"));
-//                       listOfMembers.setDob(resultset.getDate("dob"));                       
-//                       listOfMembers.setDor(resultset.getDate("dor"));
-//                       listOfMembers.setStatus(resultset.getString("status"));
-//                       listOfMembers.setBalance(resultset.getFloat("balance"));
-//                       
-//                       tablelist.add(listOfMembers);
-//                       number++; // keep track of numbers of item
-//                   }
-                    
-//            }catch (SQLException e) {
-//                e.printStackTrace();
-//            }
+                    while(resultset.next())
+                   {
+                       ListAllMembers listOfMembers = new ListAllMembers();      
+                       
+                       listOfMembers.setId(resultset.getString("id"));
+                       listOfMembers.setName(resultset.getString("name"));                       
+                       listOfMembers.setAddress(resultset.getString("address"));
+                       listOfMembers.setDob(resultset.getDate("dob"));                       
+                       listOfMembers.setDor(resultset.getDate("dor"));
+                       listOfMembers.setStatus(resultset.getString("status"));
+                       listOfMembers.setBalance(resultset.getFloat("balance"));
+                       
+                       tablelist.add(listOfMembers);
+                       number++; // keep track of numbers of item
+                   }
+                    request.setAttribute("tablelist",tablelist); 
+            }catch (SQLException e) {
+                e.printStackTrace();
+            }
      
-     ListAllMembers listOfMembers = new ListAllMembers();
-         listOfMembers.setId("kotek");
-//         tablelist.add(listOfMembers);  
+     
+          
       
-         
-            request.setAttribute("number", number);
-             request.setAttribute("tablelist",listOfMembers);             
+            request.setAttribute("test", test);
+             request.setAttribute("number", number);
+                         
 
              request.getRequestDispatcher("/view/adminMembers.jsp").forward(request, response);
                 
