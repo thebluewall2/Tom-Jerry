@@ -16,7 +16,7 @@ import java.util.Calendar;
  *
  * @author yusuk
  */
-public class CheckEligibility {
+public class CheckDOR {
     
     public static String checkdor(String member_id) throws SQLException{            
                    
