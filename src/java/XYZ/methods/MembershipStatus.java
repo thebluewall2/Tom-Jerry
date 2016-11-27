@@ -7,8 +7,6 @@ package XYZ.methods;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.servlet.http.HttpSession;
-
 /**
  *
  * @author Adrian

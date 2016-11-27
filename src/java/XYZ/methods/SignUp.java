@@ -1,5 +1,7 @@
 package XYZ.methods;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,6 +13,17 @@ public class SignUp {
 
         String username = generateUsername(name);
         String password = generatePassword(dateOfBirth);
+        
+        //check if username is already used in the database or not, and if it's 
+        //used, add 1 to the end of the username
+        String usernameUsed = isUsernameUsed(username);
+        
+        //the method isUsernameUsed returns the exact same username if it's not in use yet
+        //otherwise it returns the latest entry of the same name in the database , i.e ja-bond1
+        if (usernameUsed != username) {
+            username = generateNewUsername(usernameUsed);
+        } 
+        
         //this variable is to be returned to the servlet
         String userInfo[] = new String[2];
         userInfo[0] = username;
@@ -67,6 +80,62 @@ public class SignUp {
         password = password.concat(splitter[2]);
 
         return password;
+    }
+    
+    public static String isUsernameUsed(String username) {
+        String query = "SELECT * from users where id like '%" + username + "%' order by id desc";
+        
+        ResultSet rs = OpenConnectionSQL.getData(query);
+
+        try {
+            if (rs.next()) {
+                return rs.getString("id");
+            } else {
+                return username;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            OpenConnectionSQL.closeConn();
+            OpenConnectionSQL.closeResultSet();
+        }
+        return username;
+    }
+    
+    public static String generateNewUsername(String username) {
+        char lastChar = username.charAt(username.length() - 1);
+        char secondLastChar = username.charAt(username.length() - 2);
+        boolean isTwoDigits = false;
+        int digit = 0;
+        String newUsername = null;
+        
+        //check if the username has a digit already behind it or not
+        if (Character.isDigit(lastChar)) {
+            //if it yes, see if the second last char is a digit as well or not i.e ja-holding12
+
+            if (Character.isDigit(secondLastChar)) {
+                //meaning the digit is more than 9
+                isTwoDigits = true;
+                digit = (Character.getNumericValue(secondLastChar) * 10) + Character.getNumericValue(lastChar);
+            } else {
+                digit = Character.getNumericValue(lastChar);
+            }
+
+            digit++;
+
+            if (isTwoDigits) {
+                newUsername = username.substring(0, username.length() - 2);
+                newUsername = newUsername.concat(Integer.toString(digit));
+            } else {
+                newUsername = username.substring(0, username.length() - 1);
+                newUsername = newUsername.concat(Integer.toString(digit));
+            }
+        } else {
+            //if there is no digit behind this username, just add 1 to his username
+            newUsername = username.concat(Integer.toString(1));
+        }
+        
+        return newUsername;
     }
 
 }
