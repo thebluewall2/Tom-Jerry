@@ -56,14 +56,18 @@
         <servlet-name>AdminApprovalServlet</servlet-name>
         <servlet-class>XYZ.Controller.AdminApprovalServlet</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>adminServlet</servlet-name>
-        <url-pattern>/adminServlet</url-pattern>
-    </servlet-mapping>
     <servlet>
         <servlet-name>logoutServlet</servlet-name>
         <servlet-class>XYZ.Controller.logoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MembershipServlet</servlet-name>
+        <servlet-class>XYZ.Controller.MembershipServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>adminServlet</servlet-name>
+        <url-pattern>/adminServlet</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>logoutServlet</servlet-name>
         <url-pattern>/logoutServlet.do</url-pattern>
@@ -119,6 +123,10 @@
     <servlet-mapping>
         <servlet-name>AdminApprovalServlet</servlet-name>
         <url-pattern>/AdminApprovalServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MembershipServlet</servlet-name>
+        <url-pattern>/MembershipServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
