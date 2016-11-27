@@ -13,7 +13,7 @@
                 <td>
                     <ul>
                         <li><a href="/XYZDriverAssociation/view/adminHome.jsp">Home</a></li>
-                        <li><a href="/XYZDriverAssociation/view/adminMembers.jsp">Member List</a></li>
+                        <li><a href="/XYZDriverAssociation/ListAllUsersServlet">Member List</a></li>
                         <li><a href="/XYZDriverAssociation/AnnualTurnoverServlet">Annual Turnover</a></li>
                          <li><a href="/XYZDriverAssociation/AdminViewClaimServlet">View Claim</a></li>
                         <li><a href="/XYZDriverAssociation/logoutServlet.do">LogOut</a></li>
