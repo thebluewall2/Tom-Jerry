@@ -31,7 +31,7 @@
                     <th>Reason of Claim</th>
                     <th>Status</th>
                     <th>Amount</th>
-                    <th></th>
+                    <th>Action</th>
                 </tr>    
                 
                 <c:set var="count" value="0"/>    

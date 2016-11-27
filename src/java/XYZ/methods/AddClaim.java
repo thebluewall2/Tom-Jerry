@@ -25,6 +25,12 @@ public class AddClaim {
        
         openconn.OpenConnection();
         
+        if(ClaimAmount == -999 || ClaimReason.equals(""))
+        {
+            
+            return "failure";
+        }
+        else{
         // insert the data
         try{
          
@@ -52,6 +58,7 @@ public class AddClaim {
        openconn.closeConn();
        
        return "success";//return to servlet with success string to determind successfully added claim
+    }
     }
 }
 
