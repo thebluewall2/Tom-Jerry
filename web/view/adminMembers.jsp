@@ -14,10 +14,6 @@
 <body>        
     <jsp:include page="headerAdmin.jsp" />
         
-    <h1> Members </h1>
-    ${requestScope.number}
-    
-
             <h1> List of Members </h1>
             <div data-role="content" class="ui-content" class="table1">
             <table width="1200px">
@@ -49,7 +45,13 @@
                     <td><c:out value="${row.status}"/></td>
                     <td><c:out value="${row.balance}"/></td>
                     <td> 
-                            <button><a href="/XYZDriverAssociation/SuspendServlet?id=${row.id}">Suspend</a></button>
+                        <c:if test="${row.status eq 'SUSPENDED'}">
+                            <button><a href="/XYZDriverAssociation/ReapproveUserServlet?id=${row.id}">Reapprove</a></button> 
+                             </c:if>
+                            <c:if test="${row.status eq 'APPLIED'|| row.status eq 'APPROVED'}">
+                                <button><a href="/XYZDriverAssociation/SuspendServlet?id=${row.id}">Suspend</a></button>  
+                            </c:if>
+                                
                     </td>     
                 </tr>
                 </c:forEach>
