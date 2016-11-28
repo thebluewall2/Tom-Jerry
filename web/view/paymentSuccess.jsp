@@ -7,7 +7,9 @@
         <title>Payment Succeed</title>
     </head>
     <body>
+        <div align="center">
         <h1>Thank you for your payment!</h1>
         <p><a href="view/userHome.jsp">Click here to return Home</a></p>
+        </div>       
     </body>
 </html>

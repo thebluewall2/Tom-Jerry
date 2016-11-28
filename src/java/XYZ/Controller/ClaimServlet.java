@@ -73,25 +73,7 @@ public class ClaimServlet extends HttpServlet {
             
 //          CHECK CLAIM PER YEAR
 
-//          check claim by listing claims user made
-            ViewClaim v_claim = new ViewClaim();
-
-            ResultSet resultset = v_claim.ListClaim(mem_id,memberStatus);
-
-            List<ViewClaim> tablelist = new ArrayList<ViewClaim>();
-            
-            int number = 0;
-
-                while(resultset.next())
-               {
-                   ViewClaim listClaim = new ViewClaim();      
-
-                   listClaim.setId(resultset.getInt("id"));                                             
-                   tablelist.add(listClaim);
-                   number++; // keep track of numbers of item
-               }           
-
-            String CheckClaimPyear = CheckClaimPerYear.checkclaim(number);
+            String CheckClaimPyear = CheckClaimPerYear.checkclaim(mem_id); // check if user's total claim > 2
 
             if(CheckClaimPyear.equals("Eligible"))
        {

@@ -24,7 +24,7 @@ public class paymentServlet extends HttpServlet {
         float amount = Float.parseFloat(request.getParameter("amount"));
 
         UserPayment.userPayment(memberID, paymentMethod, amount);
-        response.sendRedirect("view/userHome.jsp");
+        response.sendRedirect("view/paymentSuccess.jsp");
     }
 
 }
