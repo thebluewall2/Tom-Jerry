@@ -19,7 +19,7 @@
             <textarea style="resize:none" name="address" rows="10" cols="70"></textarea>
 
             Date of birth : <br>
-            <input type="text" name="dob" placeholder="DD/MM/YYYY">
+            <input type="date" name="dob" placeholder="DD/MM/YYYY">
             
             <br><br>
             <input type="SUBMIT" value="Submit">
