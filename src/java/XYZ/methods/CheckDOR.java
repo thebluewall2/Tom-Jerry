@@ -19,7 +19,7 @@ public class CheckDOR {
     
     public static String checkdor(String member_id) throws SQLException{            
                    
-              String queryforDOR = "SELECT * FROM members WHERE id ='"+member_id+"';";  
+              String queryforDOR = "SELECT * FROM Members WHERE id ='"+member_id+"';";  
               
         ResultSet resultset = OpenConnectionSQL.getData(queryforDOR); 
         

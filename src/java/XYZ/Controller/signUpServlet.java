@@ -29,8 +29,6 @@ public class signUpServlet extends HttpServlet {
         
         String userInfo[] = new String[2];
         
-        System.out.println(name + address + dob);
-        
         userInfo = SignUp.SignUpNewMember(name, address, dob);
         
         request.setAttribute("username", userInfo[0]);

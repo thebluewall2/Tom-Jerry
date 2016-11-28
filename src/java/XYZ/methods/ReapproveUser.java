@@ -12,7 +12,9 @@ package XYZ.methods;
 public class ReapproveUser {
      public static void reapproveUser (String memberID) {
         String query = "UPDATE Members SET status='APPROVED' WHERE id='"+memberID+"';";
+        OpenConnectionSQL.executeQuery(query);
         
+        query = "UPDATE users SET status='APPROVED' WHERE id='" + memberID + "';";
         OpenConnectionSQL.executeQuery(query);
     }
 }

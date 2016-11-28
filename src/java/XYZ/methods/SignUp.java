@@ -33,7 +33,7 @@ public class SignUp {
         Date date = new Date();
         java.sql.Date dor = new java.sql.Date(date.getTime());
 
-        //convert dateOfBirth to String, and to sql date format for dob
+        //convert dateOfBirth to sql date format for dob
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         Date birthDate = null;
         try {
@@ -41,7 +41,7 @@ public class SignUp {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        
+
         java.sql.Date dob = new java.sql.Date(birthDate.getTime());
 
         //add member info into users table

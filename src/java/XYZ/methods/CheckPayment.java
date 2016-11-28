@@ -6,7 +6,7 @@ public class CheckPayment {
 
     public static float checkPayment(String memberID) {
 
-        String sql_query = "SELECT balance from members where id='" + memberID + "' LIMIT 1";
+        String sql_query = "SELECT balance from Members where id='" + memberID + "' LIMIT 1";
         ResultSet rs = OpenConnectionSQL.getData(sql_query);
         float balance = 0;
 

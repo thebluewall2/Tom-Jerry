@@ -38,7 +38,7 @@
                 <c:forEach items="${tablelist}" var="row"> 
                     
                 <tr>                                                                                                        
-                    <td><c:out value="${count=count+1}"/></td> 
+                    <td><c:out value="${count}"/></td> 
                     <td><c:out value="${row.mem_id}"/></td>
                     <td><c:out value="${row.date}"/></td>
                     <td><c:out value="${row.rationale}"/></td>                   

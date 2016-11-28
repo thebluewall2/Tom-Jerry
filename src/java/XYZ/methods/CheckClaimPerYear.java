@@ -22,7 +22,7 @@ public class CheckClaimPerYear {
     public static String checkclaim(String member_id) throws SQLException
     {                   
         
-        String queryforCheckClaim = "SELECT * FROM claims WHERE mem_id ='"+member_id+"';";  
+        String queryforCheckClaim = "SELECT * FROM Claims WHERE mem_id ='"+member_id+"';";  
                
         int number=0;
         ResultSet resultset = OpenConnectionSQL.getData(queryforCheckClaim); 

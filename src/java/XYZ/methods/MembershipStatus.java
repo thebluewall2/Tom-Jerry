@@ -17,7 +17,7 @@ public class MembershipStatus {
         
         try {
        
-            String sql_query = "SELECT status, expiry from users where id =" + "'" + username + "'";
+            String sql_query = "SELECT status from users where id =" + "'" + username + "'";
             ResultSet rs = OpenConnectionSQL.getData(sql_query); 
             
             rs.next(); 
