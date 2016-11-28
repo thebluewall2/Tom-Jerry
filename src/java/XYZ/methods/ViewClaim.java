@@ -25,9 +25,9 @@ public class ViewClaim {
        
         String selectedquery = "";
         
-        String queryadmin = "SELECT * FROM claims;";        
-        String query = "SELECT * FROM claims WHERE mem_id ='"+member_id+"';";  
-        String querysubmitted ="SELECT * FROM claims WHERE status ='SUBMITTED'";
+        String queryadmin = "SELECT * FROM claims order by id desc;";        
+        String query = "SELECT * FROM claims WHERE mem_id ='"+member_id+"' order by id desc;";  
+        String querysubmitted ="SELECT * FROM claims WHERE status ='SUBMITTED' order by id desc";
         
         if(target.equals("ADMIN"))
         {
