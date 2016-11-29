@@ -1,9 +1,8 @@
 
 package XYZ.Controller;
 
-import static XYZ.methods.AnnualTurnover.getAnnualTurnover;
+import XYZ.methods.AnnualTurnover;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,12 +18,17 @@ public class AnnualTurnoverServlet extends HttpServlet
     {
         //creating an array to store the 2 floats, annualTurnover[0] 
         //is total income and annualTurnover[1] is total payouts
-        float[] annualTurnover = new float[2];
+        //annualTurnover[2] is total members
+        float[] annualTurnover = new float[3];
+        float totalPaymentPerMember;
 
-        annualTurnover = getAnnualTurnover();
+        annualTurnover = AnnualTurnover.getAnnualTurnover();
+        totalPaymentPerMember = annualTurnover[1] / Math.round(annualTurnover[2]); 
 
         request.setAttribute("totalIncome", annualTurnover[0]);
         request.setAttribute("totalPayouts", annualTurnover[1]);
+        request.setAttribute("totalMembers", Math.round(annualTurnover[2])); //so that it doesnt print 2.0 members
+        request.setAttribute("totalPerMember", totalPaymentPerMember);
         
         RequestDispatcher rd = request.getRequestDispatcher("/view/adminAnnual.jsp");
         rd.forward(request, response);
@@ -35,7 +39,7 @@ public class AnnualTurnoverServlet extends HttpServlet
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException 
     {
-        
+        //do nothing
     }
 
 

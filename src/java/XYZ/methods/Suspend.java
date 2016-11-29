@@ -12,7 +12,9 @@ package XYZ.methods;
 public class Suspend {
     public static void suspendUser (String memberID) {
         String query = "UPDATE Members SET status='SUSPENDED' WHERE id='"+memberID+"';";
+        OpenConnectionSQL.executeQuery(query);
         
+        query = "UPDATE users SET status='SUSPENDED' WHERE id='"+memberID+"';";
         OpenConnectionSQL.executeQuery(query);
     }
 }

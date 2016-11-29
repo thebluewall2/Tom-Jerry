@@ -7,11 +7,12 @@ public class AnnualTurnover {
 
     public static float[] getAnnualTurnover() {
         //annualTurnover[0] is total income, annualTurnover[1] is total payout
-        float[] annualTurnover = new float[2];
+        float[] annualTurnover = new float[3];
 
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         float totalIncome = 0;
         float totalPayouts = 0;
+        int totalMembers = 0;
         ResultSet rs;
 
         Calendar cal = Calendar.getInstance();
@@ -27,9 +28,20 @@ public class AnnualTurnover {
         rs = OpenConnectionSQL.getData(sql_query);
 
         totalPayouts = getTotalAmount(rs, cal, currentYear);
-
+        
+        sql_query = "SELECT count(*) from members where status='APPROVED'";
+        rs = OpenConnectionSQL.getData(sql_query);
+        
+        try {
+            rs.next();
+            totalMembers = rs.getInt("count(*)");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
         annualTurnover[0] = totalIncome;
         annualTurnover[1] = totalPayouts;
+        annualTurnover[2] = totalMembers;
         
         OpenConnectionSQL.closeConn();
         OpenConnectionSQL.closeResultSet();
@@ -57,5 +69,4 @@ public class AnnualTurnover {
         return totalPayouts;
 
     }
-
 }

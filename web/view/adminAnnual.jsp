@@ -1,13 +1,13 @@
 
 
 <html>    
-<head>
-    <link type="text/css" rel="stylesheet" href="/XYZDriverAssociation/view/pageDesign.css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-</head>
+    <head>
+        <link type="text/css" rel="stylesheet" href="/XYZDriverAssociation/view/pageDesign.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
 
     <body>
         <jsp:include page="headerAdmin.jsp"/>   
@@ -29,8 +29,17 @@
                 </tbody>
             </table>
         </div>
-                    
-        <jsp:include page="footer.jsp" />
 
-    </body>
+        <br><br>
+    <center>
+        XYZ Driver Association has a total of ${requestScope.totalMembers} members. Based on the total payouts, each member
+        will be charged $${requestScope.totalPerMember} + $10 for the annual membership fee. <br>
+        
+        <a href='/XYZDriverAssociation/chargeAllMembers.do?fee=${requestScope.totalPerMember + 10}'>Charge all members 
+            ($${requestScope.totalPerMember + 10}) </a>
+    </center>
+
+    <jsp:include page="footer.jsp" />
+
+</body>
 </html>

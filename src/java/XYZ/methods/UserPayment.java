@@ -11,7 +11,7 @@ public class UserPayment {
     static final String DB_URL = "jdbc:mysql://localhost/XYZ_Assoc?autoReconnect=true&useSSL=false";
 
     static final String USER = "root";
-    static final String PASS = "";
+    static final String PASS = "aaaaa1";
 
     public static void userPayment(String memberID, String paymentMethod, float amount) {
         Connection con = null;
