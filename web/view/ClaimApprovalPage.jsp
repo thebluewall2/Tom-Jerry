@@ -25,20 +25,19 @@
             
             <table border="1">
                 <tr>
-                    <th>No</th>
+                    <th>ID</th>
                     <th>Member ID</th>
                     <th>Date of Claim</th>
                     <th>Reason of Claim</th>
-                    <th>Status</th>
                     <th>Amount</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>    
-                
-                <c:set var="count" value="0"/>    
+                   
                 <c:forEach items="${tablelist}" var="row"> 
                     
                 <tr>                                                                                                        
-                    <td><c:out value="${count=count+1}"/></td> 
+                    <td><c:out value="${row.id}"/></td> 
                     <td><c:out value="${row.mem_id}"/></td>
                     <td><c:out value="${row.date}"/></td>
                     <td><c:out value="${row.rationale}"/></td>                    

@@ -58,11 +58,13 @@ public class ClaimServlet extends HttpServlet {
                 request.setAttribute("message", message);
                 request.setAttribute("popupbox1", true);
                 request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
+                return;
             } else {
                 String message = ("Something is wrong with the system please retry the operation.");
                 request.setAttribute("message", message);
                 request.setAttribute("popupbox1", true);
                 request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
+                return;
             }
 
 //          CHECK CLAIM PER YEAR
@@ -75,11 +77,13 @@ public class ClaimServlet extends HttpServlet {
                 request.setAttribute("message", message);
                 request.setAttribute("popupbox1", true);
                 request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
+                return;
             } else {
                 String message = ("Something is wrong with the system please retry the operation.");
                 request.setAttribute("message", message);
                 request.setAttribute("popupbox1", true);
                 request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
+                return;
             }
 
             AddClaim claim = new AddClaim();
@@ -90,12 +94,13 @@ public class ClaimServlet extends HttpServlet {
                 request.setAttribute("message", message);
                 request.setAttribute("popupbox1", true);
                 request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
-
+                return;
             } else if (ClaimSuccess.equals("failure")) {
                 String message = ("Claim failure, some of the fields are not filled");
                 request.setAttribute("message", message);
                 request.setAttribute("popupbox1", true);
                 request.getRequestDispatcher("/view/userHome.jsp").forward(request, response);
+                return;
                 //can go back to home or continue adding claim
                 //msg pop failure
             }
