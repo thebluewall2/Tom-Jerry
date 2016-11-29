@@ -17,7 +17,7 @@
     </head>
     <body>
 
-        <jsp:include page="headerUser.jsp" />        
+        <jsp:include page="headerUser.jsp" />     
 
         <div align="center">
 

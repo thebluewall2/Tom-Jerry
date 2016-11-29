@@ -5,13 +5,13 @@ import java.util.Calendar;
 
 public class AnnualTurnover {
 
-    public static float[] getAnnualTurnover() {
+    public static double[] getAnnualTurnover() {
         //annualTurnover[0] is total income, annualTurnover[1] is total payout
-        float[] annualTurnover = new float[3];
+        double[] annualTurnover = new double[3];
 
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
-        float totalIncome = 0;
-        float totalPayouts = 0;
+        double totalIncome = 0;
+        double totalPayouts = 0;
         int totalMembers = 0;
         ResultSet rs;
 

@@ -16,7 +16,9 @@
     </head>
     <body>
 
-        <jsp:include page="headerAdmin.jsp" />        
+        <jsp:include page="headerAdmin.jsp" />      
+        
+        
 
         <div align="center">
 

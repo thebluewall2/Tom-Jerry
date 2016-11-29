@@ -7,52 +7,32 @@ import java.util.Date;
 
 public class UserPayment {
 
-    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost/XYZ_Assoc?autoReconnect=true&useSSL=false";
-
-    static final String USER = "root";
-    static final String PASS = "aaaaa1";
 
     public static void userPayment(String memberID, String paymentMethod, float amount) {
-        Connection con = null;
-        Statement statement = null;
-
         Date date = new Date();
+        float balance = 0;
         java.sql.Date paymentDate = new java.sql.Date(date.getTime());
-
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection(DB_URL, USER, PASS);
-            statement = con.createStatement();
 
             String sql_query = "INSERT into payments (mem_id, type_of_payment, amount, date) "
                     + "VALUES ('" + memberID + "', '" + paymentMethod + "', " + amount
                     + ", '" + paymentDate + "')";
 
-            statement.executeUpdate(sql_query);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
+            OpenConnectionSQL.executeQuery(sql_query);
+            
+            sql_query = "SELECT balance from Members where id='" + memberID + "' LIMIT 1";
+            ResultSet rs = OpenConnectionSQL.getData(sql_query);
+            
             try {
-                if (statement != null) {
-                    con.close();
-                }
+                rs.next();
+                balance = rs.getInt("balance");
             } catch (SQLException e) {
-
+                e.printStackTrace();
             }
-        }
-
-        try {
-            if (con != null) {
-                con.close();
-            }
-        } catch (SQLException e) {
-
-        }
-
+            
+            sql_query = "UPDATE Members SET balance='" + (balance - amount) + "' WHERE id='" + memberID + "'";
+            OpenConnectionSQL.executeQuery(sql_query);
+            
+            OpenConnectionSQL.closeConn();
     }
 
 }

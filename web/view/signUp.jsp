@@ -25,6 +25,9 @@
             <input type="SUBMIT" value="Submit">
         </form>
         
+        <br><br>
+        <center><a href="/XYZDriverAssociation/index.jsp">Cancel sign up</a></center>
+        
         </div>
         
     </body>

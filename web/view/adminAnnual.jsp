@@ -32,11 +32,12 @@
 
         <br><br>
     <center>
+        <h3>
         XYZ Driver Association has a total of ${requestScope.totalMembers} members. Based on the total payouts, each member
-        will be charged $${requestScope.totalPerMember} + $10 for the annual membership fee. <br>
-        
+        will be charged £${requestScope.totalPerMember} + £10 for the annual membership fee. <br></h3>
+       
         <a href='/XYZDriverAssociation/chargeAllMembers.do?fee=${requestScope.totalPerMember + 10}'>Charge all members 
-            ($${requestScope.totalPerMember + 10}) </a>
+            (£${requestScope.totalPerMember + 10}) </a>
     </center>
 
     <jsp:include page="footer.jsp" />

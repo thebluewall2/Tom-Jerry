@@ -19,7 +19,7 @@
             <table border="0">
                 <tr>
                     <td>
-                        <a href="/XYZDriverAssociation/view/adminHome.jsp"><img src="view/images/XYZLOGO.png" width="200" height="100" alt="XYZ" /></a>
+                        <a href="/XYZDriverAssociation/index.jsp"><img src="view/images/XYZLOGO.png" width="200" height="100" alt="XYZ" /></a>
                     </td>
                 </tr>
             </table>

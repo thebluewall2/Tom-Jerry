@@ -27,10 +27,9 @@
         </div>
         <br><br>
         <form action="/XYZDriverAssociation/paymentServlet" method="POST" style="width: 400px">
-            Payment Method: 
+            Payment Type: 
             <select name="paymentMethod">
-                <option value="Cash">Cash</option>
-                <option value="Card">Card</option>
+                <option value="FEE">FEE</option>
             </select>
             Amount: <input type="text" name ="amount" placeholder="£0.00"><br>
             <br>
