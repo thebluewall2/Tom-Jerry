@@ -84,6 +84,14 @@
         <servlet-name>ListPayments</servlet-name>
         <servlet-class>XYZ.Controller.ListPaymentsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewOutstandingBalancesServlet</servlet-name>
+        <servlet-class>XYZ.Controller.ViewOutstandingBalancesServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewProvisionalMembershipServlet</servlet-name>
+        <servlet-class>XYZ.Controller.ViewProvisionalMembershipServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>adminServlet</servlet-name>
         <url-pattern>/adminServlet</url-pattern>
@@ -167,6 +175,14 @@
     <servlet-mapping>
         <servlet-name>ListPayments</servlet-name>
         <url-pattern>/listPayments.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewOutstandingBalancesServlet</servlet-name>
+        <url-pattern>/ViewOutstandingBalancesServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewProvisionalMembershipServlet</servlet-name>
+        <url-pattern>/ViewProvisionalMembershipServlet.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
