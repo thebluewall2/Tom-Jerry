@@ -51,7 +51,7 @@ public class UserViewClaimServlet extends HttpServlet {
              ResultSet resultset = v_claim.ListClaim(mem_id,memberStatus);
                        
              List<ViewClaim> tablelist = new ArrayList<ViewClaim>();
-             //error is here coldnt load while or something wrong
+             //error is here couldnt load while or something wrong
              int number = 0;
                                  
                     while(resultset.next())

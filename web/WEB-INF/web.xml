@@ -80,6 +80,10 @@
         <servlet-name>ChargeAllMembers</servlet-name>
         <servlet-class>XYZ.Controller.ChargeAllMembersServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ListPayments</servlet-name>
+        <servlet-class>XYZ.Controller.ListPaymentsServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>adminServlet</servlet-name>
         <url-pattern>/adminServlet</url-pattern>
@@ -159,6 +163,10 @@
     <servlet-mapping>
         <servlet-name>ChargeAllMembers</servlet-name>
         <url-pattern>/chargeAllMembers.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListPayments</servlet-name>
+        <url-pattern>/listPayments.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
